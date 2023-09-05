@@ -32,7 +32,6 @@
 
 	<ItemGroup>
 		<!-- App Icon -->
-		<MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#512BD4" />
 
 		<!-- Splash Screen -->
 		<MauiSplashScreen Include="Resources\Splash\splash.svg" Color="#512BD4" BaseSize="128,128" />
@@ -46,6 +45,46 @@
 
 		<!-- Raw Assets (also remove the "Resources\Raw" prefix) -->
 		<MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Remove="Resources\Fonts\SF-Pro.ttf" />
+	  <None Remove="Resources\Images\calendar.svg" />
+	  <None Remove="Resources\Images\Mnochrome_chevron_right.svg" />
+	  <None Remove="Resources\Images\Monochrome_arrow_forward.svg" />
+	  <None Remove="Resources\Images\Monochrome_binoculars.svg" />
+	  <None Remove="Resources\Images\Monochrome_binoculars_fill.svg" />
+	  <None Remove="Resources\Images\Monochrome_bookmark.svg" />
+	  <None Remove="Resources\Images\Monochrome_bookmark_fill.svg" />
+	  <None Remove="Resources\Images\Monochrome_books_vertical.svg" />
+	  <None Remove="Resources\Images\Monochrome_books_vertical_fill.svg" />
+	  <None Remove="Resources\Images\Monochrome_book_closed.svg" />
+	  <None Remove="Resources\Images\Monochrome_book_closed_fill.svg" />
+	  <None Remove="Resources\Images\Monochrome_book_fill.svg" />
+	  <None Remove="Resources\Images\Monochrome_calendar_badge_clock.svg" />
+	  <None Remove="Resources\Images\Monochrome_eyeglasses.svg" />
+	  <None Remove="Resources\Images\Monochrome_gear.svg" />
+	  <None Remove="Resources\Images\Monochrome_heart.svg" />
+	  <None Remove="Resources\Images\Monochrome_heart_fill.svg" />
+	  <None Remove="Resources\Images\Monochrome_list_bullet.svg" />
+	  <None Remove="Resources\Images\Monochrome_magnifyingglass.svg" />
+	  <None Remove="Resources\Images\Monochrome_person.svg" />
+	  <None Remove="Resources\Images\Monochrome_person_2.svg" />
+	  <None Remove="Resources\Images\Monochrome_person_2_fill.svg" />
+	  <None Remove="Resources\Images\Monochrome_person_3.svg" />
+	  <None Remove="Resources\Images\Monochrome_person_3_fill.svg" />
+	  <None Remove="Resources\Images\Monochrome_person_badge_clock.svg" />
+	  <None Remove="Resources\Images\Monochrome_person_badge_clock_fill.svg" />
+	  <None Remove="Resources\Images\Monochrome_person_fill.svg" />
+	  <None Remove="Resources\Images\Monochrome_sparkles.svg" />
+	  <None Remove="Resources\Images\Monochrome_sunglasses.svg" />
+	  <None Remove="Resources\Images\Monochrome_tag.svg" />
+	  <None Remove="Resources\Images\Monochrome_tag_fill.svg" />
+	  <None Remove="Resources\Images\Monochrome_text_book_closed.svg" />
+	  <None Remove="Resources\Images\Monochrome_text_book_closed_fill.svg" />
+	  <None Remove="Resources\Images\Monochrome_tray_2.svg" />
+	  <None Remove="Resources\Images\Monochrome_tray_2_fill.svg" />
+	  <None Remove="Resources\Images\plus.svg" />
 	</ItemGroup>
 
 	<ItemGroup>

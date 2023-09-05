@@ -4,24 +4,147 @@
              x:Class="PocketLib.Pages.MainPage">
 
     <ScrollView>
-        <FlexLayout
-            JustifyContent="Start"
-            Direction="Column">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+
             <Button 
                 Text="Modifier"
-
-                />
-            <Button
-                Text="+"
-
-                />
+                FontAttributes="Bold"
+                MaximumWidthRequest="50"
+                HorizontalOptions="Start"
+                Margin="10"
+            />
+            <ImageButton 
+                Grid.Column="1"
+                Source="plus.svg"
+                MaximumWidthRequest="16"
+                HorizontalOptions="End"
+                Margin="10"
+            />
             <Label
+                Grid.Row="1"
                 Text="Mes Livres"
                 FontAttributes="Bold"
                 FontSize="32"
-                />
+                Margin="12"
+             />
 
-        </FlexLayout>
+            <Button
+                Grid.Row="2"
+                Grid.ColumnSpan="2"
+                Style="{StaticResource buttonMainPage}" 
+                ImageSource="monochrome_tray_2_fill.svg"
+                Text="Tous"
+                
+                >
+             
+            </Button>
+
+            <Button 
+                Grid.Row="3"
+                Grid.ColumnSpan="2"
+                Style="{StaticResource buttonMainPage}" 
+                ImageSource="monochrome_person_badge_clock_fill.svg"
+                Text="En prêt"
+                >
+
+            </Button>
+
+            <Button 
+                Grid.Row="4"
+                Grid.ColumnSpan="2"
+                Style="{StaticResource buttonMainPage}" 
+                ImageSource="monochrome_arrow_forward.svg"
+                Text="À lire plus tard"
+                >
+
+            </Button>
+
+            <Button 
+                Grid.Row="5"
+                Grid.ColumnSpan="2"
+                Style="{StaticResource buttonMainPage}" 
+                ImageSource="monochrome_eyeglasses.svg"
+                Text="Statut de lecture"
+                >   
+
+            </Button>
+
+            <Button 
+                Grid.Row="6"
+                Grid.ColumnSpan="2"
+                Style="{StaticResource buttonMainPage}" 
+                ImageSource="monochrome_heart_fill.svg"
+                Text="Favoris"
+                >
+
+            </Button>
+
+            <Button 
+                Grid.Row="7"
+                Grid.ColumnSpan="2"
+                Style="{StaticResource buttonMainPage}" 
+                ImageSource="monochrome_tag_fill.svg"
+                Text="Étiquettes"
+                >
+
+            </Button>
+
+            <Label
+                Grid.Row="8"
+                Text="Filtres"
+                FontAttributes="Bold"
+                FontSize="18"
+                Margin="12"
+             />
+
+            <Button 
+                Grid.Row="9"
+                Grid.ColumnSpan="2"
+                Style="{StaticResource buttonMainPage}" 
+                ImageSource="monochrome_person_fill.svg"
+                Text="Auteur"
+                    >
+
+            </Button>
+            <Button 
+                Grid.Row="10"
+                Grid.ColumnSpan="2"
+                Style="{StaticResource buttonMainPage}" 
+                ImageSource="calendar.svg"
+                Text="Date de publication"
+                    >
+
+            </Button>
+            <Button 
+                Grid.Row="11"
+                Grid.ColumnSpan="2"
+                Style="{StaticResource buttonMainPage}" 
+                ImageSource="monochrome_sparkles.svg"
+                Text="Note"
+                    >
+
+            </Button>
+
+        </Grid>
 
     </ScrollView>
 
