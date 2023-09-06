@@ -390,13 +390,28 @@
 
     <Style x:Key="buttonMainPage" TargetType="Button">
         <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource Black}, Dark={StaticResource White}}" />
-        <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource Gray000}, Dark={StaticResource Transparent}}" />
+        <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource Transparent}, Dark={StaticResource Transparent}}" />
         <Setter Property="Padding" Value="4"/>
-        <Setter Property="Margin" Value="-1"/>
+        <Setter Property="Margin" Value="-0.5"/>
         <Setter Property="BorderWidth" Value="0.5"/>
         <Setter Property="BorderColor" Value="LightGray"/>
         <Setter Property="CornerRadius" Value="0"/>
     </Style>
 
+    <Style x:Key="contentMainPage" TargetType="ContentView">
+        <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource Transparent}, Dark={StaticResource Transparent}}" />
+        <Setter Property="Margin" Value="-2"/>
+    </Style>
+
+    <Style x:Key="imageMainPage" TargetType="Image">
+        <Setter Property="HorizontalOptions" Value="Start"/>
+        <Setter Property="Margin" Value="20, 0, 0, 0"/>
+    </Style>
+
+    <Style x:Key="labelMainPage" TargetType="Label">
+        <Setter Property="HorizontalOptions" Value="Start"/>
+        <Setter Property="Margin" Value="10, 0, 0, 0"/>
+    </Style>
+   
 
 </ResourceDictionary>
