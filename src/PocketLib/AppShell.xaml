@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="PocketLib.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:PocketLib"
+    xmlns:pages="clr-namespace:PocketLib.Pages"
+    Shell.FlyoutBehavior="Disabled"
+    Shell.NavBarIsVisible="False">
+    <TabBar>
+        <ShellContent
+            Title="Mes Livres"
+            Icon="monochrome_books_vertical_fill.svg"
+            ContentTemplate="{DataTemplate pages:MainPage}"
+        />
+
+        <ShellContent
+            Title="Ma liste"
+            Icon="monochrome_list_bullet.svg"
+            ContentTemplate="{DataTemplate pages:ListPage}"
+        />
+
+        <ShellContent
+            Title="Mes lectures"
+            Icon="monochrome_bookmark_fill.svg"
+            ContentTemplate="{DataTemplate pages:ListPage}"
+        />
+        <ShellContent
+            Title="Recherche"
+            Icon="monochrome_magnifyingglass.svg"
+            ContentTemplate="{DataTemplate pages:ListPage}"
+        />  
+    </TabBar>
+</Shell>
