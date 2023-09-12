@@ -398,19 +398,12 @@
         <Setter Property="CornerRadius" Value="0"/>
     </Style>
 
-    <Style x:Key="contentMainPage" TargetType="ContentView">
-        <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource Transparent}, Dark={StaticResource Transparent}}" />
-        <Setter Property="Margin" Value="-2"/>
-    </Style>
-
     <Style x:Key="imageMainPage" TargetType="Image">
         <Setter Property="HorizontalOptions" Value="Start"/>
-        <Setter Property="Margin" Value="20, 0, 0, 0"/>
     </Style>
 
     <Style x:Key="labelMainPage" TargetType="Label">
         <Setter Property="HorizontalOptions" Value="Start"/>
-        <Setter Property="Margin" Value="10, 0, 0, 0"/>
     </Style>
    
 

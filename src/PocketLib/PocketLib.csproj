@@ -59,6 +59,7 @@
 	  <None Remove="Resources\Images\Monochrome_arrow_forward.svg" />
 	  <None Remove="Resources\Images\Monochrome_binoculars.svg" />
 	  <None Remove="Resources\Images\Monochrome_binoculars_fill.svg" />
+	  <None Remove="Resources\Images\monochrome_book.svg" />
 	  <None Remove="Resources\Images\Monochrome_bookmark.svg" />
 	  <None Remove="Resources\Images\Monochrome_bookmark_fill.svg" />
 	  <None Remove="Resources\Images\Monochrome_books_vertical.svg" />
@@ -103,7 +104,13 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <MauiXaml Update="Pages\DatePage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Pages\ListPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\MenuButtonView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>

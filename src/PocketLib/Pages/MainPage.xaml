@@ -1,539 +1,130 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="PocketLib.Pages.MainPage">
-
-    
-    
-    <ScrollView
-        Margin="0"
-        >
-        <ScrollView.Resources>
-            <Style
-                TargetType="Image"
-                BasedOn="{StaticResource imageMainPage}"
-                >
-            </Style>
-            <Style
-                TargetType="ContentView"
-                BasedOn="{StaticResource contentMainPage}"
-                >
-            </Style>
-
-            <Style
-                TargetType="Label"
-                BasedOn="{StaticResource labelMainPage}"
-                >
-            </Style>
-        </ScrollView.Resources>
-        <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-            </Grid.ColumnDefinitions>
+             xmlns:controls="clr-namespace:PocketLib.Pages"
+             x:Class="PocketLib.Pages.MainPage"
+             >
 
 
-            <Button 
-                Text="Modifier"
-                FontAttributes="Bold"
-                MaximumWidthRequest="50"
-                HorizontalOptions="Start"
-                Margin="15,10,0,0"
-            />
-            <ImageButton 
-                Grid.Column="1"
-                Source="plus.svg"
-                MaximumWidthRequest="16"
-                HorizontalOptions="End"
-                Padding="0"
-                Margin="0, 10, 15, 0"
-            />
+    <ScrollView>
+        <StackLayout>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Button 
+                    Text="Modifier"
+                    FontAttributes="Bold"
+                    MaximumWidthRequest="50"
+                    HorizontalOptions="Start"
+                    Margin="15,10,0,0"
+                />
+                <ImageButton 
+                    Grid.Column="1"
+                    Source="plus.svg"
+                    MaximumWidthRequest="16"
+                    HorizontalOptions="End"
+                    Padding="0"
+                    Margin="0, 10, 15, 0"
+                />
+
+            </Grid>
+            
             <Label
-                Grid.Row="1"
                 Text="Mes Livres"
                 FontAttributes="Bold"
                 FontSize="32"
                 Margin="20, 0, 0, 0"
              />
-            
+
             <!--Buttons-->
 
-
-            <ContentView
-                Grid.Row="2"
-                Grid.ColumnSpan="3"
-                >
-                <Border
-                    StrokeThickness="0.5"
-                >
-                    <Grid
-                        Padding="0,3,0,3"
-                        >
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto"/>
-                        </Grid.RowDefinitions>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition/>
-                            <ColumnDefinition/>
-                            <ColumnDefinition/>
-                            <ColumnDefinition/>
-                        </Grid.ColumnDefinitions>
-
-                        <Image
-                        Source="monochrome_tray_2_fill.svg"
-                        >
-
-                        </Image>
-                        
-                        <Label
-                        Text="Tous"
-                        Grid.Column="1"
-                        >
-
-                        </Label>
-
-                        <Label
-                        Text="45"
-                        Grid.Column="2"
-                        >
-
-                        </Label>
-
-                        <Image
-                        Grid.Column="3"
-                        Source="monochrome_chevron_right.svg"
-                        >
-
-                        </Image>
-
-                        </Grid>
-                </Border>
-
-            </ContentView>
-            <ContentView
-                Grid.Row="3"
-                Grid.ColumnSpan="3"
-                >
-                <Border
-                    StrokeThickness="0.5"
-                >
-                    <Grid
-                        Padding="0,3,0,3"
-                        >
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto"/>
-                        </Grid.RowDefinitions>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition/>
-                            <ColumnDefinition/>
-                            <ColumnDefinition/>
-                            <ColumnDefinition/>
-                        </Grid.ColumnDefinitions>
-
-                        <Image
-                        Source="monochrome_person_badge_clock_fill.svg"
-                        >
-
-                        </Image>
-                        <Label
-                        Text="En prêt"
-                        Grid.Column="1"
-                        >
-
-                        </Label>
-
-                        <Label
-                        Text="1"
-                        Grid.Column="2"
-                        >
-
-                        </Label>
-
-                        <Image
-                        Grid.Column="3"
-                        Source="monochrome_chevron_right.svg"
-                        >
-
-                        </Image>
-                    </Grid>
-                </Border>
-            </ContentView>
+            <BoxView HeightRequest="0.5" Color="LightGray"/>
 
 
-            <ContentView
-                Grid.Row="4"
-                Grid.ColumnSpan="2"
-                
-                >
-                <Border
-                    StrokeThickness="0.5"
-                >
-                    <Grid
-                        Padding="0,3,0,3"
-                        >
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto"/>
-                        </Grid.RowDefinitions>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition/>
-                            <ColumnDefinition/>
-                            <ColumnDefinition/>
-                            <ColumnDefinition/>
-                        </Grid.ColumnDefinitions>
+            <controls:MenuButtonView
+                Label="Tous"
+                Image="monochrome_tray_2_fill.svg"
+                Count="42"
+             />
 
-                        <Image
-                        Source="monochrome_arrow_forward.svg"
-                        >
+            <BoxView HeightRequest="0.5" Color="LightGray" Margin="20,0,0,0"/>
 
-                        </Image>
-                        <Label
-                        Text="À lire plus tard"
-                        Grid.Column="1"
-                        >
+            <controls:MenuButtonView
+                Label="En prêt"
+                Image="monochrome_person_badge_clock_fill.svg"
+                Count=""
+             />
 
-                        </Label>
+            <BoxView HeightRequest="0.5" Color="LightGray" Margin="20,0,0,0"/>
 
-                        <Label
-                        Text=""
-                        Grid.Column="2"
-                        >
+            <controls:MenuButtonView
+                Label="À lire plus tard"
+                Image="monochrome_arrow_forward.svg"
+                Count=""
+             />
 
-                        </Label>
+            <BoxView HeightRequest="0.5" Color="LightGray" Margin="20,0,0,0"/>
 
-                        <Image
-                        Grid.Column="3"
-                        Source="monochrome_chevron_right.svg"
-                        >
+            <controls:MenuButtonView
+                Label="Statut de lecture"
+                Image="monochrome_eyeglasses.svg"
+                Count=""
+             />
+            
+            <BoxView HeightRequest="0.5" Color="LightGray" Margin="20,0,0,0"/>
 
-                        </Image>
-                    </Grid>
-                </Border>
-            </ContentView>
+            <controls:MenuButtonView
+                Label="Favoris"
+                Image="monochrome_heart_fill.svg"
+                Count=""
+             />
 
-            <ContentView
-                Grid.Row="5"
-                Grid.ColumnSpan="2"
-                
-                >
-                <Border
-                    StrokeThickness="0.5"
-                >
-                    <Grid
-                        Padding="0,3,0,3"
-                        >
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto"/>
-                        </Grid.RowDefinitions>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition/>
-                            <ColumnDefinition/>
-                            <ColumnDefinition/>
-                            <ColumnDefinition/>
-                        </Grid.ColumnDefinitions>
+            <BoxView HeightRequest="0.5" Color="LightGray" Margin="20,0,0,0"/>
 
-                        <Image
-                        Source="monochrome_eyeglasses.svg"
-                        >
+            <controls:MenuButtonView
+                Label="Étiquettes"
+                Image="monochrome_tag_fill.svg"
+                Count=""
+             />
 
-                        </Image>
-                        <Label
-                        Text="Statut de lecture"
-                        Grid.Column="1"
-                        >
-
-                        </Label>
-
-                        <Label
-                        Text=""
-                        Grid.Column="2"
-                        >
-
-                        </Label>
-
-                        <Image
-                        Grid.Column="3"
-                        Source="monochrome_chevron_right.svg"
-                        >
-
-                        </Image>
-                    </Grid>
-                </Border>
-            </ContentView>
-
-            <ContentView
-                Grid.Row="6"
-                Grid.ColumnSpan="2"
-                
-                >
-                <Border
-                    StrokeThickness="0.5"
-                >
-                    <Grid
-                        Padding="0,3,0,3"
-                        >
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto"/>
-                        </Grid.RowDefinitions>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition/>
-                            <ColumnDefinition/>
-                            <ColumnDefinition/>
-                            <ColumnDefinition/>
-                        </Grid.ColumnDefinitions>
-
-                        <Image
-                        Source="monochrome_heart_fill.svg"
-                        >
-
-                        </Image>
-                        <Label
-                        Text="Favoris"
-                        Grid.Column="1"
-                        >
-
-                        </Label>
-
-                        <Label
-                        Text=""
-                        Grid.Column="2"
-                        >
-
-                        </Label>
-
-                        <Image
-                        Grid.Column="3"
-                        Source="monochrome_chevron_right.svg"
-                        >
-
-                        </Image>
-                    </Grid>
-                </Border>
-            </ContentView>
-
-
-            <ContentView
-                Grid.Row="7"
-                Grid.ColumnSpan="2"
-                
-                >
-                <Border
-                    StrokeThickness="0.5"
-                >
-                    <Grid
-                        Padding="0,3,0,3"
-                        >
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto"/>
-                        </Grid.RowDefinitions>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition/>
-                            <ColumnDefinition/>
-                            <ColumnDefinition/>
-                            <ColumnDefinition/>
-                        </Grid.ColumnDefinitions>
-
-                        <Image
-                        Source="monochrome_tag_fill.svg"
-                        >
-
-                        </Image>
-                        <Label
-                        Text="Étiquettes"
-                        Grid.Column="1"
-                        >
-
-                        </Label>
-
-                        <Label
-                        Text=""
-                        Grid.Column="2"
-                        >
-
-                        </Label>
-
-                        <Image
-                        Grid.Column="3"
-                        Source="monochrome_chevron_right.svg"
-                        >
-
-                        </Image>
-                    </Grid>
-                </Border>
-            </ContentView>
+            <BoxView HeightRequest="0.5" Color="LightGray"/>
             
             <Label
-                Grid.Row="8"
                 Text="Filtres"
                 FontAttributes="Bold"
                 FontSize="18"
                 Margin="20,10,0,10"
              />
 
-            <ContentView
-                Grid.Row="9"
-                Grid.ColumnSpan="2"
-                
-                >
-                <Border
-                    StrokeThickness="0.5"
-                >
-                    <Grid
-                        Padding="0,3,0,3"
-                        >
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto"/>
-                        </Grid.RowDefinitions>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition/>
-                            <ColumnDefinition/>
-                            <ColumnDefinition/>
-                            <ColumnDefinition/>
-                        </Grid.ColumnDefinitions>
+            <BoxView HeightRequest="0.5" Color="LightGray"/>
 
-                        <Image
-                        Source="monochrome_person_fill.svg"
-                        >
+            <controls:MenuButtonView
+                Label="Auteur"
+                Image="monochrome_person_fill.svg"
+                Count=""
+             />
 
-                        </Image>
-                        <Label
-                        Text="Auteur"
-                        Grid.Column="1"
-                        >
+            <BoxView HeightRequest="0.5" Color="LightGray" Margin="20,0,0,0"/>
+            
+            <controls:MenuButtonView
+                Label="Date de publication"
+                Image="calendar.svg"
+                Count=""
+             />
 
-                        </Label>
+            <BoxView HeightRequest="0.5" Color="LightGray" Margin="20,0,0,0"/>
+            
+            <controls:MenuButtonView
+                Label="Note"
+                Image="monochrome_sparkles.svg"
+                Count=""
+             />
+            
+            <BoxView HeightRequest="0.5" Color="LightGray"/>
 
-                        <Label
-                        Text=""
-                        Grid.Column="2"
-                        >
-
-                        </Label>
-
-                        <Image
-                        Grid.Column="3"
-                        Source="monochrome_chevron_right.svg"
-                        >
-
-                        </Image>
-                    </Grid>
-                </Border>
-            </ContentView>
-
-            <ContentView
-                Grid.Row="10"
-                Grid.ColumnSpan="2"
-                
-                >
-                <Border
-                    StrokeThickness="0.5"
-                >
-                    <Grid
-                        Padding="0,3,0,3"
-                        >
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto"/>
-                        </Grid.RowDefinitions>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition/>
-                            <ColumnDefinition/>
-                            <ColumnDefinition/>
-                            <ColumnDefinition/>
-                        </Grid.ColumnDefinitions>
-
-                        <Image
-                        Source="calendar.svg"
-                        >
-
-                        </Image>
-                        <Label
-                        Text="Date de publication"
-                        Grid.Column="1"
-                        >
-
-                        </Label>
-
-                        <Label
-                        Text=""
-                        Grid.Column="2"
-                        >
-
-                        </Label>
-
-                        <Image
-                        Grid.Column="3"
-                        Source="monochrome_chevron_right.svg"
-                        >
-
-                        </Image>
-                    </Grid>
-                </Border>
-            </ContentView>
-
-            <ContentView
-                Grid.Row="11"
-                Grid.ColumnSpan="2"
-                
-                >
-                <Border
-                    StrokeThickness="0.5"
-                >
-                    <Grid
-                        Padding="0,3,0,3"
-                        >
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto"/>
-                        </Grid.RowDefinitions>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition/>
-                            <ColumnDefinition/>
-                            <ColumnDefinition/>
-                            <ColumnDefinition/>
-                        </Grid.ColumnDefinitions>
-
-                        <Image
-                        Source="monochrome_sparkles.svg"
-                        >
-
-                        </Image>
-                        <Label
-                        Text="Note"
-                        Grid.Column="1"
-                        >
-
-                        </Label>
-
-                        <Label
-                        Text=""
-                        Grid.Column="2"
-                        >
-
-                        </Label>
-
-                        <Image
-                        Grid.Column="3"
-                        Source="monochrome_chevron_right.svg"
-                        >
-
-                        </Image>
-                    </Grid>
-                </Border>
-            </ContentView>
-
-        </Grid>
+        </StackLayout>
 
     </ScrollView>
 

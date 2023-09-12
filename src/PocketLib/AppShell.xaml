@@ -23,7 +23,7 @@
         <ShellContent
             Title="Mes lectures"
             Icon="monochrome_bookmark_fill.svg"
-            ContentTemplate="{DataTemplate pages:ListPage}"
+            ContentTemplate="{DataTemplate pages:DatePage}"
         />
         <ShellContent
             Title="Recherche"

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+              xmlns:controls="clr-namespace:PocketLib.Pages"
+             x:Class="PocketLib.Pages.DatePage"
+             Title="DatePage">
+    <ScrollView>
+        <StackLayout>
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="10*"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <ImageButton 
+                    Source="monochrome_chevron_right.svg"
+                    MaximumWidthRequest="16"
+                    HorizontalOptions="Center"
+                />
+                <Label
+                    Grid.Column="1"
+                    Text="Date de publication"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Center"
+                />
+                <ImageButton 
+                    Grid.Column="2"
+                    Source="plus.svg"
+                    MaximumWidthRequest="16"
+                    HorizontalOptions="Center"
+                />
+
+            </Grid>
+
+
+            <BoxView HeightRequest="0.5" Color="LightGray"/>
+
+            <controls:MenuButtonView
+                Label="2022"
+                Image="monochrome_book.svg"
+                Count="1"
+             />
+
+            <BoxView HeightRequest="0.5" Color="LightGray" Margin="57,0,0,0"/>
+
+            <controls:MenuButtonView
+                Label="2022"
+                Image="monochrome_book.svg"
+                Count="1"
+             />
+
+
+            <BoxView HeightRequest="0.5" Color="LightGray"/>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>
