@@ -28,7 +28,7 @@
         <ShellContent
             Title="Recherche"
             Icon="monochrome_magnifyingglass.svg"
-            ContentTemplate="{DataTemplate pages:ListPage}"
+            ContentTemplate="{DataTemplate pages:DetailsPage}"
         />  
     </TabBar>
 </Shell>

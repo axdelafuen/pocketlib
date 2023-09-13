@@ -7,7 +7,19 @@
 
     <ScrollView>
         <StackLayout>
-                        
+            <controls:HeaderView
+                Label="Tous"
+                Image1="monochrome_arrow_up_arrow_down.svg"
+                Image2="plus.svg"
+                >
+            </controls:HeaderView>
+
+            <BoxView HeightRequest="0.5" Color="LightGray"/>
+
+            <controls:PreviewView>
+                
+            </controls:PreviewView>
+
         </StackLayout>
     </ScrollView>
 </ContentPage>
