@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             xmlns:controls="clr-namespace:PocketLib.Pages"
+             x:Class="PocketLib.Pages.SearchPage"
+             Title="SearchPage">
+    <ScrollView>
+        <StackLayout>
+            <Label
+                Grid.Column="1"
+                HorizontalTextAlignment="Center"
+                Padding="5"
+                FontAttributes="Bold"
+                FontSize="20"
+                Text="Recherche"
+                VerticalOptions="Center"
+                HorizontalOptions="Center"
+                />
+
+            <BoxView HeightRequest="0.5" Color="LightGray"/>
+
+            <controls:SearchBarView/>
+
+            <BoxView HeightRequest="0.5" Color="LightGray"/>
+
+
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

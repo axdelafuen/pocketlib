@@ -16,18 +16,18 @@
         <ShellContent
             Title="Ma liste"
             Icon="monochrome_list_bullet.svg"
-            ContentTemplate="{DataTemplate pages:TempPage}"
+            ContentTemplate="{DataTemplate pages:ListPage}"
         />
 
         <ShellContent
             Title="Mes lectures"
             Icon="monochrome_bookmark_fill.svg"
-            ContentTemplate="{DataTemplate pages:TempPage}"
+            ContentTemplate="{DataTemplate pages:ListPage}"
         />
         <ShellContent
             Title="Recherche"
             Icon="monochrome_magnifyingglass.svg"
-            ContentTemplate="{DataTemplate pages:TempPage}"
+            ContentTemplate="{DataTemplate pages:SearchPage}"
          />
     </TabBar>
 </Shell>

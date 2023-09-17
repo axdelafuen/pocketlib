@@ -10,7 +10,7 @@
 
             <controls:HeaderView
                 Label="Date de publication"
-                Image1="plus.svg"
+                Image1="monochrome_arrow_up_arrow_down.svg"
                 ActionCommand="{Binding GoBackCommand}"
                 >
 

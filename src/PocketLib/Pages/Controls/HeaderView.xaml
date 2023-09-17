@@ -54,9 +54,9 @@
             </ImageButton>
 
             <ImageButton 
-                Margin="15,0"
+                Margin="10,0"
                 Source="{Binding Image1, Source={x:Reference root}}"
-                MaximumWidthRequest="16"
+                MaximumWidthRequest="20"
                 HorizontalOptions="Center"
             >
                 <ImageButton.Behaviors>

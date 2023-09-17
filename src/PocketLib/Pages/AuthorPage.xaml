@@ -10,7 +10,7 @@
 
             <controls:HeaderView
             Label="Auteur"
-            Image1="plus.svg"
+            Image1="monochrome_arrow_up_arrow_down.svg"
             ActionCommand="{Binding GoBackCommand}"
             >
 
