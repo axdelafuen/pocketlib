@@ -405,6 +405,4 @@
     <Style x:Key="labelMainPage" TargetType="Label">
         <Setter Property="HorizontalOptions" Value="Start"/>
     </Style>
-   
-
 </ResourceDictionary>

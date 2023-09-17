@@ -1,4 +1,5 @@
-﻿namespace PocketLib;
+﻿using PocketLib.Pages;
+namespace PocketLib;
 
 public partial class App : Application
 {

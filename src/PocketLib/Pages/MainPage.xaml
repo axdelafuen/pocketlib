@@ -1,14 +1,18 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:the49="https://schemas.the49.com/dotnet/2023/maui"
              xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:controls="clr-namespace:PocketLib.Pages"
              x:Class="PocketLib.Pages.MainPage"
-             >
+             x:Name="this">
 
 
     <ScrollView>
-        <StackLayout>
+        <StackLayout
+            
+            >
+
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="2*"/>
@@ -18,7 +22,6 @@
                 <Button 
                     Text="Modifier"
                     FontAttributes="Bold"
-                    MaximumWidthRequest="50"
                     HorizontalOptions="Center"
                 />
                 <ImageButton 
@@ -26,10 +29,25 @@
                     Source="plus.svg"
                     MaximumWidthRequest="16"
                     HorizontalOptions="Center"
+                    the49:ContextMenu.ShowMenuOnClick="True"
                 >
                     <ImageButton.Behaviors>
                         <toolkit:IconTintColorBehavior TintColor="Red" />
                     </ImageButton.Behaviors>
+
+                    <the49:ContextMenu.Menu>
+                        <DataTemplate>
+                            <the49:Menu Title="Ajouter un livre">
+                                <the49:Group Title="Ajouter un livre">
+                                    <the49:Action Title="Scanner un code-barres" />
+                                    <the49:Action Title="Scanner des codes-barres" />
+                                </the49:Group>
+                                <the49:Action Title="Rechercher en ligne" />
+                                <the49:Action Title="Saisir l'ISBN" />
+                            </the49:Menu>
+                        </DataTemplate>
+                    </the49:ContextMenu.Menu>
+                                      
                 </ImageButton>
 
             </Grid>
@@ -46,50 +64,47 @@
             <BoxView HeightRequest="0.5" Color="LightGray"/>
 
 
-            <controls:MenuButtonView
+            <controls:ButtonView
                 Label="Tous"
                 Image="monochrome_tray_2_fill.svg"
                 Count="42"
+                ActionCommand="{Binding GoToTousCommand}"
              />
 
             <BoxView HeightRequest="0.5" Color="LightGray" Margin="20,0,0,0"/>
 
-            <controls:MenuButtonView
+            <controls:ButtonView
                 Label="En prêt"
                 Image="monochrome_person_badge_clock_fill.svg"
-                Count=""
+                ActionCommand="{Binding GoToEnPretCommand}"
              />
 
             <BoxView HeightRequest="0.5" Color="LightGray" Margin="20,0,0,0"/>
 
-            <controls:MenuButtonView
+            <controls:ButtonView
                 Label="À lire plus tard"
                 Image="monochrome_arrow_forward.svg"
-                Count=""
              />
 
             <BoxView HeightRequest="0.5" Color="LightGray" Margin="20,0,0,0"/>
 
-            <controls:MenuButtonView
+            <controls:ButtonView
                 Label="Statut de lecture"
                 Image="monochrome_eyeglasses.svg"
-                Count=""
              />
             
             <BoxView HeightRequest="0.5" Color="LightGray" Margin="20,0,0,0"/>
 
-            <controls:MenuButtonView
+            <controls:ButtonView
                 Label="Favoris"
                 Image="monochrome_heart_fill.svg"
-                Count=""
              />
 
             <BoxView HeightRequest="0.5" Color="LightGray" Margin="20,0,0,0"/>
 
-            <controls:MenuButtonView
+            <controls:ButtonView
                 Label="Étiquettes"
                 Image="monochrome_tag_fill.svg"
-                Count=""
              />
 
             <BoxView HeightRequest="0.5" Color="LightGray"/>
@@ -103,26 +118,25 @@
 
             <BoxView HeightRequest="0.5" Color="LightGray"/>
 
-            <controls:MenuButtonView
+            <controls:ButtonView
                 Label="Auteur"
                 Image="monochrome_person_fill.svg"
-                Count=""
+                ActionCommand="{Binding GoToAuthorCommand}"
              />
 
             <BoxView HeightRequest="0.5" Color="LightGray" Margin="20,0,0,0"/>
-            
-            <controls:MenuButtonView
+
+            <controls:ButtonView
                 Label="Date de publication"
                 Image="calendar.svg"
-                Count=""
+                ActionCommand="{Binding GoToDateCommand}"
              />
 
             <BoxView HeightRequest="0.5" Color="LightGray" Margin="20,0,0,0"/>
-            
-            <controls:MenuButtonView
+
+            <controls:ButtonView
                 Label="Note"
                 Image="monochrome_sparkles.svg"
-                Count=""
              />
             
             <BoxView HeightRequest="0.5" Color="LightGray"/>

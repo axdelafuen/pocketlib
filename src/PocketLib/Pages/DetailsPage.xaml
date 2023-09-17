@@ -9,10 +9,14 @@
         <StackLayout>
             <controls:HeaderView
                 Label="Détails du livre"
+                ActionCommand="{Binding GoBackCommand}"
                 >
             </controls:HeaderView>
 
             <BoxView HeightRequest="0.5" Color="LightGray"/>
+
+            <controls:DetailsView></controls:DetailsView>
+            
         </StackLayout>
     </ScrollView>
 </ContentPage>

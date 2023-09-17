@@ -3,16 +3,16 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              xmlns:controls="clr-namespace:PocketLib.Pages"
-             x:Class="PocketLib.Pages.DatePage"
-             Title="DatePage">
+             x:Class="PocketLib.Pages.AuthorPage"
+             Title="AuthorPage">
     <ScrollView>
         <StackLayout>
 
             <controls:HeaderView
-                Label="Date de publication"
-                Image1="plus.svg"
-                ActionCommand="{Binding GoBackCommand}"
-                >
+            Label="Auteur"
+            Image1="plus.svg"
+            ActionCommand="{Binding GoBackCommand}"
+            >
 
             </controls:HeaderView>
 
@@ -23,21 +23,20 @@
             <BoxView HeightRequest="0.5" Color="LightGray"/>
 
             <controls:ButtonView
-                Label="2022"
-                Image="monochrome_book.svg"
-                Count="1"
-             />
+            Label="Alain Damasio"
+            Image="monochrome_book.svg"
+            Count="2"
+         />
 
             <BoxView HeightRequest="0.5" Color="LightGray" Margin="57,0,0,0"/>
 
             <controls:ButtonView
-                Label="2021"
-                Image="monochrome_book.svg"
-                Count="1"
-             />
+            Label="Cixin Lui"
+            Image="monochrome_book.svg"
+            Count="1"
+         />
 
             <BoxView HeightRequest="0.5" Color="LightGray"/>
         </StackLayout>
     </ScrollView>
 </ContentPage>
-
