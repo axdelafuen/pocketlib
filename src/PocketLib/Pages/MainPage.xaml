@@ -3,16 +3,13 @@
              xmlns:the49="https://schemas.the49.com/dotnet/2023/maui"
              xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:controls="clr-namespace:PocketLib.Pages"
+             xmlns:controls="clr-namespace:PocketLib.Pages.Views"
              x:Class="PocketLib.Pages.MainPage"
              x:Name="this">
 
 
     <ScrollView>
-        <StackLayout
-            
-            >
-
+        <StackLayout>
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="2*"/>

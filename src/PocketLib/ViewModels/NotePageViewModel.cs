@@ -1,10 +1,11 @@
 using System.Windows.Input;
 
-namespace PocketLib.Models;
+namespace PocketLib.ViewModels;
 
-public class DatePageViewModel : ContentPage
+public class NotePageViewModel : ContentPage
 {
-    public DatePageViewModel()
+
+    public NotePageViewModel()
     {
         GoBackCommand = new Command(GoBackCommandExecute);
     }

@@ -1,5 +1,4 @@
-﻿using System.Windows.Input;
-using PocketLib.Models;
+﻿using PocketLib.ViewModels;
 namespace PocketLib.Pages;
 
 public partial class MainPage : ContentPage

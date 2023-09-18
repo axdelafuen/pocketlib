@@ -1,4 +1,4 @@
-using PocketLib.Models;
+using PocketLib.ViewModels;
 namespace PocketLib.Pages;
 
 public partial class DetailsPage : ContentPage

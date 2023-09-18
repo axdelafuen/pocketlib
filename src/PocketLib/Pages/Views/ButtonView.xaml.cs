@@ -1,6 +1,6 @@
 using System.Windows.Input;
 
-namespace PocketLib.Pages;
+namespace PocketLib.Pages.Views;
 
 public partial class ButtonView : ContentView
 {

@@ -1,6 +1,6 @@
 using System.Windows.Input;
 
-namespace PocketLib.Models;
+namespace PocketLib.ViewModels;
 
 public class AuthorPageViewModel : ContentPage
 {

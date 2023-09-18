@@ -2,8 +2,8 @@
 <ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
-             x:Class="PocketLib.Pages.PreviewView"
-             xmlns:controls="clr-namespace:PocketLib.Pages"
+             x:Class="PocketLib.Pages.Views.PreviewView"
+             xmlns:controls="clr-namespace:PocketLib.Pages.Views"
              x:Name="root"
              >
     <ContentView.GestureRecognizers>

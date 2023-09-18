@@ -1,7 +1,7 @@
 using PocketLib.Pages;
 using System.Windows.Input;
 
-namespace PocketLib.Models;
+namespace PocketLib.ViewModels;
 
 public class DetailsPageViewModel : ContentPage
 {

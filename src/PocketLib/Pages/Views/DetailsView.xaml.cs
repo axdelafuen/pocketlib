@@ -1,4 +1,4 @@
-namespace PocketLib.Pages;
+namespace PocketLib.Pages.Views;
 
 public partial class DetailsView : ContentView
 {

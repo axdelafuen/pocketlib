@@ -2,7 +2,7 @@ using Microsoft.Maui.Controls.Handlers;
 using Microsoft.Maui.Controls.Platform;
 using System.Windows.Input;
 
-namespace PocketLib.Models;
+namespace PocketLib.ViewModels;
 
 public class ListPageViewModel : BindableObject
 {
@@ -17,7 +17,6 @@ public class ListPageViewModel : BindableObject
 
     private async void GoBackCommandExecute(object obj)
 	{
-        Console.WriteLine("HE HO");
 		await Shell.Current.GoToAsync("..");
 	}
     private async void GoToDetailsCommandExecute(object obj)
