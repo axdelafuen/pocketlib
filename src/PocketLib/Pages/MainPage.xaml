@@ -6,8 +6,7 @@
              xmlns:controls="clr-namespace:PocketLib.Pages.Views"
              x:Class="PocketLib.Pages.MainPage"
              x:Name="this">
-
-
+   
     <ScrollView>
         <StackLayout>
             <Grid>

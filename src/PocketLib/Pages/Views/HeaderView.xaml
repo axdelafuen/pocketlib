@@ -6,15 +6,17 @@
              x:Class="PocketLib.Pages.Views.HeaderView"
              x:Name="root">
     <Grid
+        VerticalOptions="Fill" 
+        HorizontalOptions="Fill"
         BindingContext="{x:Reference root}">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition Width="6*"/>
+            <!--<ColumnDefinition/>-->
+            <!--<ColumnDefinition/>-->
+            <!--<ColumnDefinition/>-->
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <ImageButton 
+        <!--<ImageButton 
                     Source="monochrome_chevron_left.svg"
                     MaximumWidthRequest="22"
                     HorizontalOptions="Center"
@@ -28,18 +30,19 @@
             </ImageButton.GestureRecognizers>
 
 
-        </ImageButton>
+        </ImageButton>-->
+        <!--Grid.Column="2"-->
+
         <Label
-            Grid.Column="2"
             FontAttributes="Bold"
             FontSize="20"
             Text="{Binding Label, Source={x:Reference root}}"
             VerticalOptions="Center"
-            HorizontalOptions="Center"
+            HorizontalOptions="End"
         />
 
         <HorizontalStackLayout
-            
+            HorizontalOptions="End"
             Grid.Column="3">
 
             <ImageButton 

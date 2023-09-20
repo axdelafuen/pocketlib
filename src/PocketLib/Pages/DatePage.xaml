@@ -4,17 +4,20 @@
              xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              xmlns:controls="clr-namespace:PocketLib.Pages.Views"
              x:Class="PocketLib.Pages.DatePage"
+             Shell.NavBarIsVisible="True"
              Title="DatePage">
+
+    <Shell.TitleView>
+        <controls:HeaderView
+            Label="Date de publication"
+            Image1="monochrome_arrow_up_arrow_down.svg"
+            Image2="plus.svg"
+            >
+        </controls:HeaderView>
+    </Shell.TitleView>
+
     <ScrollView>
         <StackLayout>
-
-            <controls:HeaderView
-                Label="Date de publication"
-                Image1="monochrome_arrow_up_arrow_down.svg"
-                ActionCommand="{Binding GoBackCommand}"
-                >
-
-            </controls:HeaderView>
 
             <BoxView HeightRequest="0.5" Color="LightGray"/>
 

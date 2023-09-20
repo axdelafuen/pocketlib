@@ -2,7 +2,7 @@
 
 ### To-Do
 
-- [ ] Changer mon "header view" en -> ShellNavBar (cf fork de l'énoncé)
+- [x] Changer mon "header view" en -> ShellNavBar (cf fork de l'énoncé)
 
 - [ ] Changer le mode de navigation de `Shell.Current.GoToAsync()` en -> `(App.Current as App).MainPage.PushAsync(new Page())` = (pour fluidifier la navigation)
 

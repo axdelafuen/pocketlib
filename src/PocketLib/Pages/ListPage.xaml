@@ -3,24 +3,20 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:controls="clr-namespace:PocketLib.Pages.Views"
              x:Class="PocketLib.Pages.ListPage"
+             Shell.NavBarIsVisible="True"
              Title="Tous">
-<!--
-    <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Ajouter" Priority="1"
-                     Order="Primary" IconImageSource="plus.png"/>
-        <ToolbarItem Text="Order" Priority="2"
-                     Order="Primary" IconImageSource="arrow_up_arrow_down.svg"/>
-    </ContentPage.ToolbarItems>
--->
-    <ScrollView>
+
+    <Shell.TitleView>
+        <controls:HeaderView
+            Label="Tous"
+            Image1="monochrome_arrow_up_arrow_down.svg"
+            Image2="plus.svg"
+            >
+        </controls:HeaderView>
+    </Shell.TitleView>
+        <ScrollView>
         <StackLayout>
-            <controls:HeaderView
-                Label="Tous"
-                Image1="monochrome_arrow_up_arrow_down.svg"
-                Image2="plus.svg"
-                ActionCommand="{Binding GoBackCommand}"
-                >
-            </controls:HeaderView>
+
             <controls:SeparatorWithTitle
                 Title="Alain Damasio"
             />
