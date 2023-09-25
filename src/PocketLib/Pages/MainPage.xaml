@@ -4,6 +4,7 @@
              xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:controls="clr-namespace:PocketLib.Pages.Views"
+             xmlns:pages="clr-namespace:PocketLib.Pages"
              x:Class="PocketLib.Pages.MainPage"
              x:Name="this">
    
@@ -64,7 +65,8 @@
                 Label="Tous"
                 Image="monochrome_tray_2_fill.svg"
                 Count="42"
-                ActionCommand="{Binding GoToListCommand}"
+                ActionCommand="{Binding GoToNavigationCommand}"
+                ActionCommandParameter="{pages:ListPage}"
              />
 
             <BoxView HeightRequest="0.5" Color="LightGray" Margin="20,0,0,0"/>
@@ -72,7 +74,8 @@
             <controls:ButtonView
                 Label="En prêt"
                 Image="monochrome_person_badge_clock_fill.svg"
-                ActionCommand="{Binding GoToLoanCommand}"
+                ActionCommand="{Binding GoToNavigationCommand}"
+                ActionCommandParameter="{pages:LoanPage}"
              />
 
             <BoxView HeightRequest="0.5" Color="LightGray" Margin="20,0,0,0"/>
@@ -117,7 +120,8 @@
             <controls:ButtonView
                 Label="Auteur"
                 Image="monochrome_person_fill.svg"
-                ActionCommand="{Binding GoToAuthorCommand}"
+                ActionCommand="{Binding GoToNavigationCommand}"
+                ActionCommandParameter="{pages:AuthorPage}"
              />
 
             <BoxView HeightRequest="0.5" Color="LightGray" Margin="20,0,0,0"/>
@@ -125,7 +129,8 @@
             <controls:ButtonView
                 Label="Date de publication"
                 Image="calendar.svg"
-                ActionCommand="{Binding GoToDateCommand}"
+                ActionCommand="{Binding GoToNavigationCommand}"
+                ActionCommandParameter="{pages:DatePage}"
              />
 
             <BoxView HeightRequest="0.5" Color="LightGray" Margin="20,0,0,0"/>
@@ -133,7 +138,8 @@
             <controls:ButtonView
                 Label="Note"
                 Image="monochrome_sparkles.svg"
-                ActionCommand="{Binding GoToNoteCommand}"
+                ActionCommand="{Binding GoToNavigationCommand}"
+                ActionCommandParameter="{pages:NotePage}"
              />
             
             <BoxView HeightRequest="0.5" Color="LightGray"/>

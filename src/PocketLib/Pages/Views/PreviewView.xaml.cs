@@ -43,14 +43,15 @@ public partial class PreviewView : ContentView
         get => GetValue(ActionCommandProperty) as ICommand;
         set => SetValue(ActionCommandProperty, value);
     }
+    
+    public static readonly BindableProperty ActionCommandParameterProperty = BindableProperty.Create("ActionCommandParameter", typeof(object), typeof(PreviewView));
 
-    private void TapGestureRecognizer_Tapped(object sender, TappedEventArgs e)
+    public object ActionCommandParameter
     {
-        if (ActionCommand != null && ActionCommand.CanExecute(null))
-        {
-            ActionCommand.Execute(null);
-        }
+        get => GetValue(ActionCommandParameterProperty) as object;
+        set => SetValue(ActionCommandParameterProperty, value);
     }
+    
     public PreviewView()
     {
         InitializeComponent();

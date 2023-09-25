@@ -36,12 +36,12 @@ public partial class ButtonView : ContentView
         set => SetValue(ActionCommandProperty, value);
     }
 
-    private void TapGestureRecognizer_Tapped(object sender, TappedEventArgs e)
+    public static readonly BindableProperty ActionCommandParameterProperty = BindableProperty.Create("ActionCommandParameter", typeof(object), typeof(ButtonView));
+
+    public object ActionCommandParameter
     {
-        if (ActionCommand != null && ActionCommand.CanExecute(null))
-        {
-            ActionCommand.Execute(null);
-        }       
+        get => GetValue(ActionCommandParameterProperty) as object;
+        set => SetValue(ActionCommandParameterProperty, value);
     }
 
     public ButtonView()

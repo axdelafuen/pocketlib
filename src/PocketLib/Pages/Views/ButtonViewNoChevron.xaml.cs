@@ -11,9 +11,7 @@ public partial class ButtonViewNoChevron : ContentView
         get => GetValue(LabelProperty) as string;
         set => SetValue(LabelProperty, value);
     }
-
-    public static readonly BindableProperty ActionCommandProperty = BindableProperty.Create("ActionCommand", typeof(ICommand), typeof(ButtonViewNoChevron));
-
+    
     public static readonly BindableProperty ImageProperty = BindableProperty.Create("Image", typeof(string), typeof(ButtonViewNoChevron));
 
     public string Image
@@ -21,20 +19,23 @@ public partial class ButtonViewNoChevron : ContentView
         get => GetValue(ImageProperty) as string;
         set => SetValue(ImageProperty, value);
     }
+    
+    public static readonly BindableProperty ActionCommandProperty = BindableProperty.Create("ActionCommand", typeof(ICommand), typeof(ButtonViewNoChevron));
+
     public ICommand ActionCommand
     {
         get => GetValue(ActionCommandProperty) as ICommand;
         set => SetValue(ActionCommandProperty, value);
     }
+    
+    public static readonly BindableProperty ActionCommandParameterProperty = BindableProperty.Create("ActionCommandParameter", typeof(object), typeof(ButtonViewNoChevron));
 
-    private void TapGestureRecognizer_Tapped(object sender, TappedEventArgs e)
+    public object ActionCommandParameter
     {
-        if (ActionCommand != null && ActionCommand.CanExecute(null))
-        {
-            ActionCommand.Execute(null);
-        }
+        get => GetValue(ActionCommandParameterProperty) as object;
+        set => SetValue(ActionCommandParameterProperty, value);
     }
-
+    
     public ButtonViewNoChevron()
 	{
 		InitializeComponent();

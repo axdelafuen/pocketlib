@@ -19,7 +19,7 @@
     <ContentView.GestureRecognizers>
         <TapGestureRecognizer Command="{Binding ActionCommand, Source={x:Reference root}}"  
                           NumberOfTapsRequired="1" 
-                          Tapped="TapGestureRecognizer_Tapped"/>
+                          CommandParameter="{Binding ActionCommandParameter,Source={x:Reference root}}"/>
     </ContentView.GestureRecognizers>
     <Grid
         Padding="0,4,10,4"

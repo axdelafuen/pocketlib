@@ -5,9 +5,7 @@ namespace PocketLib.Pages
     {
         public NotePage()
         {
-            InitializeComponent();
-            BindingContext = new NotePageViewModel();
-    
-    }
+            InitializeComponent(); 
+        }
     }
 }

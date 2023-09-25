@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:controls="clr-namespace:PocketLib.Pages.Views"
+             xmlns:pages="clr-namespace:PocketLib.Pages"
              x:Class="PocketLib.Pages.ListPage"
              Shell.NavBarIsVisible="True"
              Title="Tous">
@@ -25,14 +26,16 @@
                 Title="La horde du contrevenant"
                 Author="Alain Damasio"
                 Status="Non lu"
-                ActionCommand="{Binding GoToDetailsCommand}"
+                ActionCommand="{Binding GoToNavigationCommand}"
+                ActionCommandParameter="{pages:DetailsPage}"
             />
             <controls:PreviewView
                 Image="zone_du_dehors.jpg"
                 Title="La zone du dehors"
                 Author="Alain Damasio"
                 Status="Terminé"
-                ActionCommand="{Binding GoToDetailsCommand}"
+                ActionCommand="{Binding GoToNavigationCommand}"
+                ActionCommandParameter="{pages:DetailsPage}" 
             />
             <controls:SeparatorWithTitle
                 Title="Cixin Liu"
