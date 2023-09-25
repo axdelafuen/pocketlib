@@ -15,3 +15,5 @@
 - [ ] Supprimer le `private void TapGestureRecognizer_Tapped(object sender, TappedEventArgs e)` dans le code-behind des views, les commands se font juste dans les VM.
 
 - [ ] Supprimer toute les VM de route -> remplacer par un `NavigatorVM.cs` et ajouter des parameters dans les `ButtonView` pour choisir les pages usr la quelle on veut aller
+
+- [ ] Passer de Book en BookVM -> utiliser un mapper (linq avec select)
