@@ -5,8 +5,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:controls="clr-namespace:PocketLib.Pages.Views"
              xmlns:pages="clr-namespace:PocketLib.Pages"
-             x:Class="PocketLib.Pages.MainPage"
-             x:Name="this">
+             x:Class="PocketLib.Pages.MainPage">
    
     <ScrollView>
         <StackLayout>

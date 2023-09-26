@@ -10,40 +10,21 @@
         HorizontalOptions="Fill"
         BindingContext="{x:Reference root}">
         <Grid.ColumnDefinitions>
-            <!--<ColumnDefinition/>-->
-            <!--<ColumnDefinition/>-->
-            <!--<ColumnDefinition/>-->
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <!--<ImageButton 
-                    Source="monochrome_chevron_left.svg"
-                    MaximumWidthRequest="22"
-                    HorizontalOptions="Center"
-                >
-            <ImageButton.Behaviors>
-                <toolkit:IconTintColorBehavior TintColor="Red" />
-            </ImageButton.Behaviors>
-            <ImageButton.GestureRecognizers>
-                <TapGestureRecognizer NumberOfTapsRequired="1" 
-                      Tapped="TapGestureRecognizer_Tapped"/>
-            </ImageButton.GestureRecognizers>
-
-
-        </ImageButton>-->
-        <!--Grid.Column="2"-->
-
+        
         <Label
             FontAttributes="Bold"
             FontSize="20"
             Text="{Binding Label, Source={x:Reference root}}"
             VerticalOptions="Center"
-            HorizontalOptions="End"
+            HorizontalOptions="Start"
         />
 
         <HorizontalStackLayout
             HorizontalOptions="End"
-            Grid.Column="3">
+            Grid.Column="1">
 
             <ImageButton 
                 Margin="10,0"

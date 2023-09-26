@@ -3,16 +3,20 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:controls="clr-namespace:PocketLib.Pages.Views"
              x:Class="PocketLib.Pages.LoanPage"
-             Title="LoanPage">
+             Shell.NavBarIsVisible="True"
+             Title="En prêt">
+    
+    <Shell.TitleView>
+        <controls:HeaderView
+            Label="En prêt"
+            Image1="monochrome_arrow_up_arrow_down.svg"
+            Image2="plus.svg"
+        >
+        </controls:HeaderView>
+    </Shell.TitleView>
+
     <ScrollView>
         <StackLayout>
-            <controls:HeaderView
-             Label="Tous"
-             Image1="monochrome_arrow_up_arrow_down.svg"
-             Image2="plus.svg"
-             ActionCommand="{Binding GoBackCommand}"
-             >
-            </controls:HeaderView>
 
             <HorizontalStackLayout
                 HorizontalOptions="Center">

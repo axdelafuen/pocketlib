@@ -1,4 +1,6 @@
-﻿namespace PocketLib;
+﻿using PocketLib.ViewModels;
+
+namespace PocketLib;
 using PocketLib.Pages;
 
 public partial class AppShell : Shell

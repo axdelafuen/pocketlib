@@ -21,6 +21,7 @@ public static class MauiProgram
 				fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 fonts.AddFont("SF-Pro.ttf", "SF-Pro");
             });
+		builder.Services.AddSingleton<NavigatorViewModel>();
 #if DEBUG
         builder.Logging.AddDebug();
 #endif
