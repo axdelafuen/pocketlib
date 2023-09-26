@@ -19,6 +19,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Utils", "Utils\Utils.csproj
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StubbedDTO", "StubbedDTO\StubbedDTO.csproj", "{F374A265-B8FD-4BE0-A216-05EADB56C3AB}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{B490FF38-8307-4810-BF0B-9406216C3974}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestsModel", "TestsModel\TestsModel.csproj", "{1DF81215-66B6-4D28-825F-7CE14A627FC1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -59,11 +63,18 @@ Global
 		{F374A265-B8FD-4BE0-A216-05EADB56C3AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F374A265-B8FD-4BE0-A216-05EADB56C3AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F374A265-B8FD-4BE0-A216-05EADB56C3AB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1DF81215-66B6-4D28-825F-7CE14A627FC1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1DF81215-66B6-4D28-825F-7CE14A627FC1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1DF81215-66B6-4D28-825F-7CE14A627FC1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1DF81215-66B6-4D28-825F-7CE14A627FC1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {61F7FB11-1E47-470C-91E2-47F8143E1572}
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{1DF81215-66B6-4D28-825F-7CE14A627FC1} = {B490FF38-8307-4810-BF0B-9406216C3974}
 	EndGlobalSection
 EndGlobal

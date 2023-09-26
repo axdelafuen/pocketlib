@@ -1,7 +1,7 @@
 ﻿using Model;
 using Stub;
 
-namespace Stub;
+namespace StubLib;
 
 public class LibraryStub : ILibraryManager
 {
