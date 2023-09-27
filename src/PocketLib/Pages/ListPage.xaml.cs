@@ -6,6 +6,7 @@ public partial class ListPage : ContentPage
 	public ListPage()
 	{
 		InitializeComponent();
-		BindingContext = new NavigatorViewModel();
+		//BindingContext = new NavigatorViewModel();
+		//BindingContext = new ManagerViewModel();
 	}
 }

@@ -22,6 +22,10 @@ public static class MauiProgram
                 fonts.AddFont("SF-Pro.ttf", "SF-Pro");
             });
 		builder.Services.AddSingleton<NavigatorViewModel>();
+		
+		builder.Services.AddSingleton<MainPage>();
+		builder.Services.AddSingleton<ListPage>();
+		builder.Services.AddSingleton<SearchPage>();
 #if DEBUG
         builder.Logging.AddDebug();
 #endif

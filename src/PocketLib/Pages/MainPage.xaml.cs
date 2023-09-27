@@ -3,10 +3,12 @@ namespace PocketLib.Pages;
 
 public partial class MainPage : ContentPage
 {
-    public MainPage()
+    public NavigatorViewModel nav { get; set; }
+    public MainPage(NavigatorViewModel navigatorViewModel)
     {
+        nav = navigatorViewModel;
         InitializeComponent();
-        BindingContext = new NavigatorViewModel();
+        BindingContext = this;
     }
 }
 

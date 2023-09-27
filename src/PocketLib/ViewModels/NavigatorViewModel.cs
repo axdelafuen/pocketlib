@@ -11,8 +11,8 @@ public class NavigatorViewModel : BindableObject
 
     public ICommand GoToNavigationCommand { get; set; }
 
-    private async void GoToNavigationCommandExecute(object obj)
+    private async void GoToNavigationCommandExecute(Object page)
     {
-        await (Application.Current as App)!.MainPage!.Navigation.PushAsync(obj as Page); 
+        await (Application.Current as App)!.MainPage!.Navigation.PushAsync(page as Page); 
     }
 }
