@@ -1,12 +1,17 @@
 using PocketLib.ViewModels;
+using ViewModels;
+
 namespace PocketLib.Pages;
 
 public partial class ListPage : ContentPage
 {
-	public ListPage()
+	public NavigatorViewModel nav { get; set; }
+	public ManagerViewModel mgr { get; set; }
+	public ListPage(NavigatorViewModel navigatorViewModel, ManagerViewModel managerViewModel)
 	{
+		nav = navigatorViewModel;
+		mgr = managerViewModel;
 		InitializeComponent();
-		//BindingContext = new NavigatorViewModel();
-		//BindingContext = new ManagerViewModel();
+		BindingContext = this;
 	}
 }

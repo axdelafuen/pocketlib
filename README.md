@@ -4,9 +4,7 @@
 
 - [ ] Faire fonctionner la CI
 
-- [ ] List view dans les pages
-
-- [ ] `NavigatorVM.cs` -> singleton utilisable partout
+- [ ] ContentView dans les pages
 
 - [ ] Refaire la page de pret `LoanPage.xaml`, en reprennant le code forké de l'énoncé
 
@@ -15,6 +13,8 @@
 - [ ] Ajouter la vue de scan
 
 - [x] Changer mon "header view" en -> ShellNavBar (cf fork de l'énoncé)
+
+- [x] `NavigatorVM.cs` -> singleton utilisable partout
 
 - [x] Changer le mode de navigation de `Shell.Current.GoToAsync()` en -> `(App.Current as App).MainPage.PushAsync(new Page())` = (pour fluidifier la navigation)
 

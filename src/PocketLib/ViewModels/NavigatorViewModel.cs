@@ -1,4 +1,5 @@
 ﻿using System.Windows.Input;
+using PocketLib.Pages;
 
 namespace PocketLib.ViewModels;
 
@@ -6,13 +7,19 @@ public class NavigatorViewModel : BindableObject
 {
     public NavigatorViewModel()
     {
-        GoToNavigationCommand = new Command(GoToNavigationCommandExecute);
+        GoToNavigationCommand = new Command<String>(GoToNavigationCommandExecute);
     }
 
     public ICommand GoToNavigationCommand { get; set; }
-
-    private async void GoToNavigationCommandExecute(Object page)
+    
+    private async void GoToNavigationCommandExecute(String arg)
     {
-        await (Application.Current as App)!.MainPage!.Navigation.PushAsync(page as Page); 
+        switch (arg)
+        {
+            case "ListPageTous":
+                //await Application.Current!.MainPage!.Navigation.PushAsync());
+                // FAIRE PASSER UNE LIST PAGE 
+                break;
+        }
     }
 }
