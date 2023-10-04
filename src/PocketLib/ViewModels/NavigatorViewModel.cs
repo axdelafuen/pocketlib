@@ -16,7 +16,7 @@ public class NavigatorViewModel : BindableObject
     {
         switch (arg)
         {
-            case "ListPageTous":
+            case "ListPage_Tous":
                 //await Application.Current!.MainPage!.Navigation.PushAsync());
                 // FAIRE PASSER UNE LIST PAGE 
                 break;

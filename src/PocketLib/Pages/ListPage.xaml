@@ -15,6 +15,11 @@
             >
         </controls:HeaderView>
     </Shell.TitleView>
+    <ListView ItemsSource="{Binding mgr.Books}">
+        <!-- AJOUTER UNE CONTENT VIEW BINDER -->
+    </ListView>
+    
+    <!--
         <ScrollView>
         <StackLayout>
 
@@ -98,5 +103,5 @@
 
 
         </StackLayout>
-    </ScrollView>
+    </ScrollView>-->
 </ContentPage>

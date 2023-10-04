@@ -2,6 +2,8 @@
 
 ### To-Do
 
+- [ ] Completer le navigatorVM
+
 - [ ] Faire fonctionner la CI
 
 - [ ] ContentView dans les pages
@@ -14,7 +16,7 @@
 
 - [x] Changer mon "header view" en -> ShellNavBar (cf fork de l'énoncé)
 
-- [x] `NavigatorVM.cs` -> singleton utilisable partout
+- [x] `NavigatorVM.cs` -> singleton
 
 - [x] Changer le mode de navigation de `Shell.Current.GoToAsync()` en -> `(App.Current as App).MainPage.PushAsync(new Page())` = (pour fluidifier la navigation)
 

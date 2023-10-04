@@ -64,8 +64,8 @@
                 Label="Tous"
                 Image="monochrome_tray_2_fill.svg"
                 Count="42"
-                ActionCommand="{Binding nav.GoToNavigationCommand}"
-                ActionCommandParameter="ListPageTous"
+                ActionCommand="{Binding Nav.GoToNavigationCommand}"
+                ActionCommandParameter="ListPage_Tous"
              />
 
             <BoxView HeightRequest="0.5" Color="LightGray" Margin="20,0,0,0"/>
@@ -73,7 +73,7 @@
             <controls:ButtonView
                 Label="En prêt"
                 Image="monochrome_person_badge_clock_fill.svg"
-                ActionCommand="{Binding nav.GoToNavigationCommand}"
+                ActionCommand="{Binding Nav.GoToNavigationCommand}"
                 ActionCommandParameter="{pages:LoanPage}"
              />
 
@@ -119,7 +119,7 @@
             <controls:ButtonView
                 Label="Auteur"
                 Image="monochrome_person_fill.svg"
-                ActionCommand="{Binding nav.GoToNavigationCommand}"
+                ActionCommand="{Binding Nav.GoToNavigationCommand}"
                 ActionCommandParameter="{pages:AuthorPage}"
              />
 
@@ -128,7 +128,7 @@
             <controls:ButtonView
                 Label="Date de publication"
                 Image="calendar.svg"
-                ActionCommand="{Binding nav.GoToNavigationCommand}"
+                ActionCommand="{Binding Nav.GoToNavigationCommand}"
                 ActionCommandParameter="{pages:DatePage}"
              />
 
@@ -137,7 +137,7 @@
             <controls:ButtonView
                 Label="Note"
                 Image="monochrome_sparkles.svg"
-                ActionCommand="{Binding nav.GoToNavigationCommand}"
+                ActionCommand="{Binding Nav.GoToNavigationCommand}"
                 ActionCommandParameter="{pages:NotePage}"
              />
             
