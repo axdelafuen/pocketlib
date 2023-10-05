@@ -3,29 +3,29 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Windows.Input;
+using InsaneMVVMToolKit;
 using Model;
 
 namespace ViewModels;
 
 public class ManagerViewModel : INotifyPropertyChanged
 {
-    // Manager constr
+    // Manager
     public Manager Manager { get; set; }
     
     public ManagerViewModel(Manager manager)
     {
         Manager = manager;
         Books = new ReadOnlyObservableCollection<BookViewModel>(books);
-        //GetBooksFromCollectionCommand = new Command(GetBooksFromCollectionCommandExecute);
-        // => FAIRE UNE "RelayCommand" PRCK "Command" EXISTE PAS EN .NET NON MAUI !!!!!!
+        GetBooksFromCollectionCommand = new RelayCommand<EventArgs>(GetBooksFromCollectionCommandExecute);
     }
-    
+
     public ManagerViewModel(ILibraryManager libraryManager, IUserLibraryManager userLibraryManager)
         :this(new Manager(libraryManager, userLibraryManager)){}
 
     //Model properties
-
-    private int Index { get; set; }
+    
+    public int Index { get; set; }
 
     private int count = 10;
     public int Count
@@ -65,7 +65,7 @@ public class ManagerViewModel : INotifyPropertyChanged
 
     public ICommand GetBooksFromCollectionCommand { get; set; }
 
-    private async void GetBooksFromCollectionCommandExecute()
+    private async void GetBooksFromCollectionCommandExecute(EventArgs args)
     {
         await GetBooksFromCollection(Index,count); 
     }

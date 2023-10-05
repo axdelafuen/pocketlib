@@ -1,22 +1,36 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:controls="clr-namespace:PocketLib.Pages.Views"
+             xmlns:views="clr-namespace:PocketLib.Pages.Views"
              xmlns:pages="clr-namespace:PocketLib.Pages"
              x:Class="PocketLib.Pages.ListPage"
              Shell.NavBarIsVisible="True"
              Title="Tous">
 
     <Shell.TitleView>
-        <controls:HeaderView
+        <views:HeaderView
             Label="Tous"
             Image1="monochrome_arrow_up_arrow_down.svg"
             Image2="plus.svg"
             >
-        </controls:HeaderView>
+        </views:HeaderView>
     </Shell.TitleView>
+    
     <ListView ItemsSource="{Binding mgr.Books}">
-        <!-- AJOUTER UNE CONTENT VIEW BINDER -->
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <ViewCell>
+                    <views:PreviewView
+                        Image="{Binding ImageMedium}"
+                        Title="{Binding Title}"
+                        Author="{Binding Author.Name}"
+                        Status="Non lu"
+                        ActionCommand="{Binding GoToNavigationCommand}"
+                        ActionCommandParameter="{pages:DetailsPage}"
+                    />
+                </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
     </ListView>
     
     <!--

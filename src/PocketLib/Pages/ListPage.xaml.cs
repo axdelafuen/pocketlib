@@ -11,6 +11,7 @@ public partial class ListPage : ContentPage
 	{
 		nav = navigatorViewModel;
 		mgr = managerViewModel;
+		mgr.GetBooksFromCollectionCommand.Execute(null);
 		InitializeComponent();
 		BindingContext = this;
 	}

@@ -12,6 +12,8 @@ public class BookViewModel
 
     public List<Author> Authors => Book.Authors;
 
+    public Author Author => Book.Authors[0];
+
     public Status Status => Book.Status;
 
     public float? UserRating => Book.UserRating;
