@@ -8,12 +8,22 @@ public class BookViewModel
 
     public string Title => Book.Title;
 
-    public string ImageMedium => Book.ImageMedium;
+    public string Image => Book.ImageSmall;
 
-    public List<Author> Authors => Book.Authors;
-
-    public Author Author => Book.Authors[0];
-
+    private List<Author> _authors;
+    public List<Author> Authors
+    {
+        get
+        {
+            return _authors;
+        }
+        set
+        {
+            var bookAuthors = Book.Authors;
+            var workAuthors = Book.Works.SelectMany(w => w.Authors);
+            _authors = bookAuthors.Union(workAuthors).Distinct().ToList();
+        }
+    }
     public Status Status => Book.Status;
 
     public float? UserRating => Book.UserRating;

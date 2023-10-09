@@ -16,12 +16,12 @@
         </views:HeaderView>
     </Shell.TitleView>
     
-    <ListView ItemsSource="{Binding mgr.Books}">
+    <ListView ItemsSource="{Binding Mgr.Books}">
         <ListView.ItemTemplate>
             <DataTemplate>
                 <ViewCell>
                     <views:PreviewView
-                        Image="{Binding ImageMedium}"
+                        Image="horde_contrevenant.jpg"
                         Title="{Binding Title}"
                         Author="{Binding Author.Name}"
                         Status="Non lu"

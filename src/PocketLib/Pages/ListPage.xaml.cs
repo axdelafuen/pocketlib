@@ -5,13 +5,12 @@ namespace PocketLib.Pages;
 
 public partial class ListPage : ContentPage
 {
-	public NavigatorViewModel nav { get; set; }
-	public ManagerViewModel mgr { get; set; }
+	public NavigatorViewModel Nav { get; set; }
+	public ManagerViewModel Mgr { get; set; }
 	public ListPage(NavigatorViewModel navigatorViewModel, ManagerViewModel managerViewModel)
 	{
-		nav = navigatorViewModel;
-		mgr = managerViewModel;
-		mgr.GetBooksFromCollectionCommand.Execute(null);
+		Nav = navigatorViewModel;
+		Mgr = managerViewModel;
 		InitializeComponent();
 		BindingContext = this;
 	}

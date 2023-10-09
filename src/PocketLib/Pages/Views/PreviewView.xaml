@@ -23,6 +23,7 @@
         <Image
             Source="{Binding Image, Source={x:Reference root}}"
             HeightRequest="90"
+            WidthRequest="90"
             HorizontalOptions="Center"
             ></Image>
 
