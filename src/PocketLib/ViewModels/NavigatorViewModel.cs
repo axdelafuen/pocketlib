@@ -17,12 +17,6 @@ public class NavigatorViewModel : BindableObject
     
     private async void GoToNavigationCommandExecute(String arg)
     {
-        switch (arg)
-        {
-            case "ListPage_Tous":
-                await Shell.Current.GoToAsync(nameof(ListPage));
-                Mgr.GetBooksFromCollectionCommand.Execute(null);
-                break;
-        }
+        await Shell.Current.GoToAsync(nameof(arg));
     }
 }

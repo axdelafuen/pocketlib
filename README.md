@@ -2,17 +2,19 @@
 
 ### To-Do
 
-- [ ] Completer le navigatorVM
+- [ ] Faire le bindings
 
-- [ ] Faire fonctionner la CI
-
-- [ ] ContentView dans les pages
+- [ ] Faire fonctionner sonar
 
 - [ ] Refaire la page de pret `LoanPage.xaml`, en reprennant le code forké de l'énoncé
 
 - [ ] Faire en sorte que le menu contextuel soit accessible depuis toutes les pages
 
 - [ ] Ajouter la vue de scan
+
+- [x] Completer le navigatorVM
+
+- [x] ContentView dans les pages
 
 - [x] Changer mon "header view" en -> ShellNavBar (cf fork de l'énoncé)
 

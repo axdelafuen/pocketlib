@@ -21,9 +21,9 @@
             <DataTemplate>
                 <ViewCell>
                     <views:PreviewView
-                        Image="horde_contrevenant.jpg"
+                        Image="{Binding ImageSmall}"
                         Title="{Binding Title}"
-                        Author="{Binding Author.Name}"
+                        Author="Moi meme"
                         Status="Non lu"
                         ActionCommand="{Binding GoToNavigationCommand}"
                         ActionCommandParameter="{pages:DetailsPage}"
@@ -32,90 +32,4 @@
             </DataTemplate>
         </ListView.ItemTemplate>
     </ListView>
-    
-    <!--
-        <ScrollView>
-        <StackLayout>
-
-            <controls:SeparatorWithTitle
-                Title="Alain Damasio"
-            />
-            <controls:PreviewView
-                Image="horde_contrevenant.jpg"
-                Title="La horde du contrevenant"
-                Author="Alain Damasio"
-                Status="Non lu"
-                ActionCommand="{Binding GoToNavigationCommand}"
-                ActionCommandParameter="{pages:DetailsPage}"
-            />
-            <controls:PreviewView
-                Image="zone_du_dehors.jpg"
-                Title="La zone du dehors"
-                Author="Alain Damasio"
-                Status="Terminé"
-                ActionCommand="{Binding GoToNavigationCommand}"
-                ActionCommandParameter="{pages:DetailsPage}" 
-            />
-            <controls:SeparatorWithTitle
-                Title="Cixin Liu"
-            />
-            <controls:PreviewView
-                Image="equateur_einstein.jpg"
-                Title="L'équateur d'Einstein"
-                Author="Cixin Liu"
-                Status="Terminé"
-            />
-            <controls:PreviewView
-                Image="equateur_einstein.jpg"
-                Title="L'équateur d'Einstein"
-                Author="Cixin Liu"
-                Status="Terminé"
-            />
-            <controls:PreviewView
-                Image="equateur_einstein.jpg"
-                Title="L'équateur d'Einstein"
-                Author="Cixin Liu"
-                Status="Terminé"
-            />
-            <controls:PreviewView
-                Image="equateur_einstein.jpg"
-                Title="L'équateur d'Einstein"
-                Author="Cixin Liu"
-                Status="Terminé"
-            />
-            <controls:PreviewView
-                Image="equateur_einstein.jpg"
-                Title="L'équateur d'Einstein"
-                Author="Cixin Liu"
-                Status="Terminé"
-            />
-            <controls:PreviewView
-                Image="equateur_einstein.jpg"
-                Title="L'équateur d'Einstein"
-                Author="Cixin Liu"
-                Status="Terminé"
-            />
-            <controls:PreviewView
-                Image="equateur_einstein.jpg"
-                Title="L'équateur d'Einstein"
-                Author="Cixin Liu"
-                Status="Terminé"
-            />
-            <controls:PreviewView
-                Image="equateur_einstein.jpg"
-                Title="L'équateur d'Einstein"
-                Author="Cixin Liu"
-                Status="Terminé"
-            />
-            <controls:PreviewView
-                Image="equateur_einstein.jpg"
-                Title="L'équateur d'Einstein"
-                Author="Cixin Liu"
-                Status="Terminé"
-            />
-
-
-
-        </StackLayout>
-    </ScrollView>-->
 </ContentPage>

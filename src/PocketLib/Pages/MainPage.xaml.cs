@@ -5,12 +5,10 @@ namespace PocketLib.Pages;
 
 public partial class MainPage : ContentPage
 {
-    public NavigatorViewModel Nav { get; set; }
-    public ManagerViewModel Mgr { get; set; }
+    public MainPageViewModel MainPageVM { get; set; }
     public MainPage(NavigatorViewModel navigatorViewModel, ManagerViewModel managerViewModel)
     {
-        Nav = navigatorViewModel;
-        Mgr = managerViewModel;
+        MainPageVM = new MainPageViewModel(navigatorViewModel, managerViewModel);
         InitializeComponent();
         BindingContext = this;
     }

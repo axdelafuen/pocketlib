@@ -8,7 +8,7 @@ public class BookViewModel
 
     public string Title => Book.Title;
 
-    public string Image => Book.ImageSmall;
+    public string ImageSmall => Book.ImageSmall;
 
     private List<Author> _authors;
     public List<Author> Authors

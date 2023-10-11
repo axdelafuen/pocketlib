@@ -64,8 +64,8 @@
                 Label="Tous"
                 Image="monochrome_tray_2_fill.svg"
                 Count="42"
-                ActionCommand="{Binding Nav.GoToNavigationCommand}"
-                ActionCommandParameter="ListPage_Tous"
+                ActionCommand="{Binding MainPageVM.GoToAndLoadCommand}"
+                ActionCommandParameter="ListPage"
              />
 
             <BoxView HeightRequest="0.5" Color="LightGray" Margin="20,0,0,0"/>

@@ -12,9 +12,13 @@
                                 CommandParameter="{Binding ActionCommandParameter,Source={x:Reference root}}"/>
     </ContentView.GestureRecognizers>
     <Grid
-        Padding="0,10"
+        Padding="0,5"
         BindingContext="{x:Reference root}">
-
+        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80"></RowDefinition>
+        </Grid.RowDefinitions>
+        
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="80"></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
@@ -22,8 +26,7 @@
 
         <Image
             Source="{Binding Image, Source={x:Reference root}}"
-            HeightRequest="90"
-            WidthRequest="90"
+            Aspect="AspectFit"
             HorizontalOptions="Center"
             ></Image>
 
