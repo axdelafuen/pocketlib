@@ -9,21 +9,16 @@ public class BookViewModel
     public string Title => Book.Title;
 
     public string ImageSmall => Book.ImageSmall;
+    
+    public string ImageMedium => Book.ImageMedium;
+    
+    public string ImageLarge => Book.ImageLarge;
 
-    private List<Author> _authors;
-    public List<Author> Authors
-    {
-        get
-        {
-            return _authors;
-        }
-        set
-        {
-            var bookAuthors = Book.Authors;
-            var workAuthors = Book.Works.SelectMany(w => w.Authors);
-            _authors = bookAuthors.Union(workAuthors).Distinct().ToList();
-        }
-    }
+    public List<AuthorViewModel> Authors { get; set; }
+
+    public AuthorViewModel Author { get; set; }
+
+    public string AuthorName;
     public Status Status => Book.Status;
 
     public float? UserRating => Book.UserRating;
@@ -31,5 +26,22 @@ public class BookViewModel
     public BookViewModel(Book book)
     {
         Book = book;
+        var bookAuthors = Book.Authors;
+        var workAuthors = Book.Works.SelectMany(w => w.Authors);
+        var authors = bookAuthors.Union(workAuthors).Distinct().ToList();
+        Authors = new List<AuthorViewModel>();
+        if (authors.Count == 0)
+        {
+            Author = new AuthorViewModel(new Author{Name="Unknown"});
+            Authors.Add(Author);
+        }
+        else
+        {
+            foreach (var b in authors.Select(a => new AuthorViewModel(a)))
+            {
+                Authors.Add(b);            
+            }
+            Author = Authors.First();
+        }
     }
 }

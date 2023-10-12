@@ -1,8 +1,28 @@
-﻿namespace PocketLib.ViewModels;
+﻿using System.Windows.Input;
+using ViewModels;
+
+namespace PocketLib.ViewModels;
 
 public class ListPageViewModel
 {
-    // ICI C EST UNE VM QUI RECUP LE SELECT BOOK ET QUI VA ETRE ENVOYER
-    // DANS UNE COMMANDE QUI APPELLE LA COMMANDE DE CHARGEMENT DU LIVRE
-    // AVEC CETTE ID PUIS LA COMMANDE DE NAV
+    public ManagerViewModel Mgr { get; set; }
+    
+    private NavigatorViewModel Nav { get; set; }
+    
+    public string Id { get; set; }
+    
+    public ListPageViewModel(NavigatorViewModel navigatorViewModel, ManagerViewModel managerViewModel)
+    {
+        GoToAndLoadCommand = new Command(GoToAndLoadCommandExecute);
+        Mgr = managerViewModel;
+        Nav = navigatorViewModel;
+    }
+
+    public ICommand GoToAndLoadCommand { get; set; }
+
+    private async void GoToAndLoadCommandExecute()
+    {
+        //Mgr.GetBookByIdCommand.Execute(Id);
+        Nav.GoToNavigationCommand.Execute("DetailsPage");
+    }
 }

@@ -2,7 +2,7 @@
 
 ### To-Do
 
-- [ ] Faire le bindings
+- [ ] Faire les views de DetailsPage en BindableProperty + le bindings de la DetailsPage
 
 - [ ] Faire fonctionner sonar
 

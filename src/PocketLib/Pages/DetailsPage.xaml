@@ -20,7 +20,11 @@
 
             <BoxView HeightRequest="0.5" Color="LightGray"/>
 
-            <controls:DetailsView></controls:DetailsView>
+            <controls:DetailsView
+                
+                
+                
+                ></controls:DetailsView>
             
         </StackLayout>
     </ScrollView>

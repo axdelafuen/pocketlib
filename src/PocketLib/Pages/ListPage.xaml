@@ -5,6 +5,7 @@
              xmlns:pages="clr-namespace:PocketLib.Pages"
              x:Class="PocketLib.Pages.ListPage"
              Shell.NavBarIsVisible="True"
+             x:Name="Root"
              Title="Tous">
 
     <Shell.TitleView>
@@ -16,20 +17,17 @@
         </views:HeaderView>
     </Shell.TitleView>
     
-    <ListView ItemsSource="{Binding Mgr.Books}">
-        <ListView.ItemTemplate>
+    <CollectionView ItemsSource="{Binding ListPageVM.Mgr.Books}">
+        <CollectionView.ItemTemplate>
             <DataTemplate>
-                <ViewCell>
-                    <views:PreviewView
-                        Image="{Binding ImageSmall}"
-                        Title="{Binding Title}"
-                        Author="Moi meme"
-                        Status="Non lu"
-                        ActionCommand="{Binding GoToNavigationCommand}"
-                        ActionCommandParameter="{pages:DetailsPage}"
-                    />
-                </ViewCell>
+                <views:PreviewView
+                    Image="{Binding ImageSmall}"
+                    Title="{Binding Title}"
+                    Author="{Binding Author.Name}"
+                    Status="Non lu"
+                    ActionCommand="{Binding ListPageVM.GoToAndLoadCommand, Source={x:Reference Root}}"
+                />
             </DataTemplate>
-        </ListView.ItemTemplate>
-    </ListView>
+        </CollectionView.ItemTemplate>
+    </CollectionView>
 </ContentPage>
