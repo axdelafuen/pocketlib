@@ -31,6 +31,7 @@ public static class MauiProgram
 						.AddSingleton<ManagerViewModel>()
 						.AddSingleton<MainPage>()
 						.AddSingleton<ListPage>()
+						.AddSingleton<DetailsPage>()
 						.AddSingleton<SearchPage>();
 #if DEBUG
         builder.Logging.AddDebug();

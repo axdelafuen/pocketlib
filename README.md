@@ -2,6 +2,8 @@
 
 ### To-Do
 
+- [ ] Faire le SelectionChanged de la CollectionView
+
 - [ ] Faire les views de DetailsPage en BindableProperty + le bindings de la DetailsPage
 
 - [ ] Faire fonctionner sonar

@@ -2,7 +2,8 @@
 <ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:controls="clr-namespace:PocketLib.Pages.Views"
-             x:Class="PocketLib.Pages.Views.DetailsView">
+             x:Class="PocketLib.Pages.Views.DetailsView"
+             x:Name="root">
     <ScrollView>
         <VerticalStackLayout>
             <Grid Padding="5,15">
@@ -12,13 +13,13 @@
                 </Grid.ColumnDefinitions>
 
                 <Image
-                    Source="horde_contrevenant.jpg"
+                    Source="{Binding Image, Source={x:Reference root}}"
                     HeightRequest="100"
                     HorizontalOptions="Center"
                 />
                     <Label
                         Grid.Column="1"
-                        Text="La horde du contrevenant"
+                        Text="{Binding Title, Source={x:Reference root}}"
                         FontAttributes="Bold"
                         FontSize="Body"
                         ></Label>
@@ -37,23 +38,21 @@
 
             <controls:TitleAndDescView
                 Title="Auteur"
-                AttributeTitle1="Alain Damasio"
+                AttributeTitle1="{Binding Author, Source={x:Reference root}}"
                 />
 
             <BoxView HeightRequest="0.5" Color="LightGray"/>
 
             <controls:TitleAndDescView
                 Title="Maison d'édition"
-                AttributeTitle1="Gallimard (2025)"
+                AttributeTitle1="{Binding Edition, Source={x:Reference root}}"
                 />
 
             <BoxView HeightRequest="0.5" Color="LightGray"/>
 
             <controls:TitleAndDescView
                 Title="Résumé"
-                Desc="Un groupe d’élite, formé dès l’enfance à faire face, part des confins d’une terre féroce, saignée de rafales, pour aller chercher l’origine du vent. Ils sont vingt-trois, un bloc, un nœud de courage : la Horde. Ils sont pilier, ailier, traceur, aéromaître et géomaître, feuleuse et sourcière, troubadour et scribe. Ils traversent leur monde debout, à pied, en quête d’un Extrême-Amont qui fuit devant eux comme un horizon fou.
-                Expérience de lecture unique, La Horde du Contrevent est un livre-univers qui fond d’un même feu l’aventure et la poésie des parcours, le combat nu et la quête d’un sens profond du vivant qui unirait le mouvement et le lien. Chaque mot résonne, claque, fuse : Alain Damasio joue de sa plume comme d’un pinceau, d’une caméra ou d’une arme…
-                Chef-d’œuvre porté par un bouche-à-oreille rare, le roman a été logiquement récompensé par le Grand Prix de l’Imaginaire."
+                Desc="{Binding Resume, Source={x:Reference root}}"
                 />
 
             <BoxView HeightRequest="0.5" Color="LightGray"/>

@@ -12,4 +12,9 @@ public partial class ListPage : ContentPage
 		InitializeComponent();
 		BindingContext = this;
 	}
+
+    private void CollectionView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+    {
+		ListPageVM.Mgr.selectedBook = (e.CurrentSelection.FirstOrDefault() as BookViewModel);
+    }
 }

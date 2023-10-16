@@ -9,8 +9,6 @@ public class ListPageViewModel
     
     private NavigatorViewModel Nav { get; set; }
     
-    public string Id { get; set; }
-    
     public ListPageViewModel(NavigatorViewModel navigatorViewModel, ManagerViewModel managerViewModel)
     {
         GoToAndLoadCommand = new Command(GoToAndLoadCommandExecute);

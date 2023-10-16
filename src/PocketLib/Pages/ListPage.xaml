@@ -16,18 +16,23 @@
             >
         </views:HeaderView>
     </Shell.TitleView>
-    
-    <CollectionView ItemsSource="{Binding ListPageVM.Mgr.Books}">
+
+    <CollectionView ItemsSource="{Binding ListPageVM.Mgr.Books}" 
+                    SelectionMode="Single" SelectionChanged="CollectionView_SelectionChanged" 
+                    SelectionChangedCommand="{Binding ListPageVM.GoToAndLoadCommand}">
         <CollectionView.ItemTemplate>
             <DataTemplate>
                 <views:PreviewView
-                    Image="{Binding ImageSmall}"
-                    Title="{Binding Title}"
-                    Author="{Binding Author.Name}"
-                    Status="Non lu"
-                    ActionCommand="{Binding ListPageVM.GoToAndLoadCommand, Source={x:Reference Root}}"
+                Image="{Binding ImageSmall}"
+                Title="{Binding Title}"
+                Author="{Binding Author.Name}"
+                Status="Non lu"
                 />
             </DataTemplate>
         </CollectionView.ItemTemplate>
     </CollectionView>
 </ContentPage>
+<!--
+ActionCommand="{Binding ListPageVM.GoToAndLoadCommand, Source={x:Reference Root}}"
+    -->
+    

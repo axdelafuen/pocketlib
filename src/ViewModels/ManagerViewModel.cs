@@ -45,6 +45,8 @@ public class ManagerViewModel : INotifyPropertyChanged
 
     private long NbPages { get; set; }
 
+    public BookViewModel selectedBook { get; set; }
+
     public ReadOnlyObservableCollection<BookViewModel> Books { get; private set; }
 
     private readonly ObservableCollection<BookViewModel> books = new ObservableCollection<BookViewModel>();

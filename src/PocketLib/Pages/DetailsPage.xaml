@@ -20,10 +20,12 @@
 
             <BoxView HeightRequest="0.5" Color="LightGray"/>
 
-            <controls:DetailsView
-                
-                
-                
+            <controls:DetailsView BindingContext="detailsVM.Mgr.selectedBook"
+                Title="{Binding Title}"
+                Image="horde_contrevenant.jpg"
+                Author="MOI"
+                Resume="Super resume"
+                Edition="Une super maison d'édition"
                 ></controls:DetailsView>
             
         </StackLayout>
