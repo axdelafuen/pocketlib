@@ -17,12 +17,12 @@
                     HeightRequest="100"
                     HorizontalOptions="Center"
                 />
-                    <Label
-                        Grid.Column="1"
-                        Text="{Binding Title, Source={x:Reference root}}"
-                        FontAttributes="Bold"
-                        FontSize="Body"
-                        ></Label>
+                <Label
+                    Grid.Column="1"
+                    Text="{Binding Title, Source={x:Reference root}}"
+                    FontAttributes="Bold"
+                    FontSize="Body"
+                    ></Label>
                 <controls:StarsView 
                         Grid.Column="1"
                         VerticalOptions="End"
@@ -60,23 +60,23 @@
             <controls:TitleAndDescView
                 Title="Détails"
                 AttributeTitle1="Nombre de pages"
-                AttributeDesc1="700"
+                AttributeDesc1="{Binding NbPages, Source= {x:Reference root}}"
                 AttributeTitle2="Langue"
-                AttributeDesc2="fançais"
+                AttributeDesc2="{Binding Language, Source={x:Reference root}}"
                 AttributeTitle3="ISBN"
-                AttributeDesc3="9028357"
+                AttributeDesc3="{Binding ISBN13, Source={x:Reference root}}"
                 />
             <BoxView HeightRequest="0.5" Color="LightGray"/>
             <controls:TitleAndDescView
                 Title="Statut de lecture"
                 AttributeTitle1="Statut"
-                AttributeDesc1="Non lu"
+                AttributeDesc1="{Binding Status, Source={x:Reference root}}"
                 />
             <BoxView HeightRequest="0.5" Color="LightGray"/>
             <controls:TitleAndDescView
                 Title="Bibliothèque"
                 AttributeTitle1="Ajouté le"
-                AttributeDesc1="1à aout 2023"
+                AttributeDesc1="Indisponible"
                 />
                 
             <BoxView HeightRequest="0.5" Color="LightGray"/>

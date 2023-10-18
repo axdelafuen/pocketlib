@@ -37,11 +37,11 @@
 
 	<ItemGroup>
 		<!-- App Icon -->
-		<MauiIcon Include="Resources\AppIcon\icon.png" />
+		<MauiIcon Include="Resources\AppIcon\appicon.png" BaseSize="128, 128" />
 
 
 		<!-- Splash Screen -->
-		<MauiSplashScreen Include="Resources\Splash\splash.svg" Basesize="128,128" />
+		<MauiSplashScreen Include="Resources\Splash\mysplash.svg"/>
 
 		<!-- Images -->
 		<MauiImage Include="Resources\Images\*" BaseSize="26,26" />
@@ -134,6 +134,10 @@
 	  <ProjectReference Include="..\Model\Model.csproj" />
 	  <ProjectReference Include="..\Stub\Stub.csproj" />
 	  <ProjectReference Include="..\ViewModels\ViewModels.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="Resources\AppIcon\" />
 	</ItemGroup>
 
 </Project>

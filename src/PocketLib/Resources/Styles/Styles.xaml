@@ -2,6 +2,7 @@
 <?xaml-comp compile="true" ?>
 <ResourceDictionary 
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:views="clr-namespace:PocketLib.Pages.Views"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
 
     <Style TargetType="ActivityIndicator">
@@ -409,4 +410,25 @@
     <Style x:Key="labelMainPage" TargetType="Label">
         <Setter Property="HorizontalOptions" Value="Start"/>
     </Style>
+    
+    <Style TargetType="views:PreviewView">
+        <Setter Property="VisualStateManager.VisualStateGroups">
+            <VisualStateGroupList>
+                <VisualStateGroup x:Name="CommonStates">
+                    <VisualState x:Name="Normal" />
+                    <VisualState x:Name="Selected">
+                        <VisualState.Setters>
+                            <Setter Property="BackgroundColor"
+                                    Value="Transparent"/>
+                        </VisualState.Setters>
+                    </VisualState>
+                </VisualStateGroup>
+            </VisualStateGroupList>
+        </Setter>
+    </Style>
+    <!--
+    <Style TargetType="ContentPage">
+        
+    </Style>
+    -->
 </ResourceDictionary>

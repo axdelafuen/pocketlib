@@ -8,6 +8,14 @@ public class BookViewModel
 
     public string Title => Book.Title;
 
+    public string Edition => Book.Publishers.First();
+
+    public int NbPages => Book.NbPages;
+
+    public Languages Language => Book.Language;
+
+    public string ISBN13 => Book.ISBN13;
+    
     public string ImageSmall => Book.ImageSmall;
     
     public string ImageMedium => Book.ImageMedium;
@@ -18,8 +26,7 @@ public class BookViewModel
 
     public AuthorViewModel Author { get; set; }
 
-    public string AuthorName;
-    public Status Status => Book.Status;
+    public string Status { get; set; }
 
     public float? UserRating => Book.UserRating;
     
@@ -42,6 +49,28 @@ public class BookViewModel
                 Authors.Add(b);            
             }
             Author = Authors.First();
+        }
+        switch (Book.Status)
+        {
+            case Model.Status.Finished:
+                Status = "Terminé";
+                break;
+            case Model.Status.Reading:
+                Status = "En lecture";
+                break;
+            case Model.Status.NotRead:
+                Status = "Non lu";
+                break;
+            case Model.Status.ToBeRead:
+                Status = "A lire";
+                break;
+            case Model.Status.Unknown:
+                Status = "Aucune information";
+                break;
+            default:
+                Status = "Aucune information";
+                break;
+            
         }
     }
 }

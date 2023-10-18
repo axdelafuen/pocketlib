@@ -20,7 +20,7 @@ public class ListPageViewModel
 
     private async void GoToAndLoadCommandExecute()
     {
-        //Mgr.GetBookByIdCommand.Execute(Id);
+        //Mgr.GetBookByIdCommand.Execute(null);
         Nav.GoToNavigationCommand.Execute("DetailsPage");
     }
 }

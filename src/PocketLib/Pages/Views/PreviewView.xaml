@@ -6,11 +6,13 @@
              xmlns:controls="clr-namespace:PocketLib.Pages.Views"
              x:Name="root"
              >
+    <!--
     <ContentView.GestureRecognizers>
         <TapGestureRecognizer NumberOfTapsRequired="1" 
                                 Command="{Binding ActionCommand,Source={x:Reference root}}"
                                 CommandParameter="{Binding ActionCommandParameter,Source={x:Reference root}}"/>
     </ContentView.GestureRecognizers>
+    -->
     <Grid
         Padding="0,5"
         BindingContext="{x:Reference root}">

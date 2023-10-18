@@ -1,3 +1,5 @@
+using Model;
+
 namespace PocketLib.Pages.Views;
 
 public partial class DetailsView : ContentView
@@ -40,6 +42,38 @@ public partial class DetailsView : ContentView
     {
         get => GetValue(EditionProperty) as string;
         set => SetValue(EditionProperty, value);
+    }
+    
+    public static readonly BindableProperty NbPagesProperty = BindableProperty.Create("NbPages", typeof(int), typeof(DetailsView));
+
+    public int NbPages
+    {
+        get => (int)GetValue(NbPagesProperty);
+        set => SetValue(NbPagesProperty, value);
+    }
+    
+    public static readonly BindableProperty LanguageProperty = BindableProperty.Create("Language", typeof(string), typeof(DetailsView));
+
+    public string Language
+    {
+        get => GetValue(LanguageProperty) as string;
+        set => SetValue(LanguageProperty, value);
+    }
+    
+    public static readonly BindableProperty ISBN13Property = BindableProperty.Create("ISBN13", typeof(string), typeof(DetailsView));
+
+    public string ISBN13
+    {
+        get => GetValue(ISBN13Property) as string;
+        set => SetValue(ISBN13Property, value);
+    }
+    
+    public static readonly BindableProperty StatusProperty = BindableProperty.Create("Status", typeof(string), typeof(DetailsView));
+
+    public string Status
+    {
+        get => GetValue(StatusProperty) as string;
+        set => SetValue(StatusProperty, value);
     }
 
     public DetailsView()

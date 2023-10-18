@@ -13,8 +13,13 @@ public partial class ListPage : ContentPage
 		BindingContext = this;
 	}
 
-    private void CollectionView_SelectionChanged(object sender, SelectionChangedEventArgs e)
-    {
-		ListPageVM.Mgr.selectedBook = (e.CurrentSelection.FirstOrDefault() as BookViewModel);
-    }
+	private void SelectableItemsView_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
+	{
+		if (e.CurrentSelection.Count > 0)
+		{
+			ListPageVM.Mgr.SelectedBook = (e.CurrentSelection[0] as BookViewModel);
+			ListPageVM.GoToAndLoadCommand.Execute(null);
+			collectionView.SelectedItem = null;
+		}
+	}
 }

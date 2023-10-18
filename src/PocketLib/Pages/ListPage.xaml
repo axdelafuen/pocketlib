@@ -18,15 +18,15 @@
     </Shell.TitleView>
 
     <CollectionView ItemsSource="{Binding ListPageVM.Mgr.Books}" 
-                    SelectionMode="Single" SelectionChanged="CollectionView_SelectionChanged" 
-                    SelectionChangedCommand="{Binding ListPageVM.GoToAndLoadCommand}">
+                    SelectionMode="Single" SelectionChanged="SelectableItemsView_OnSelectionChanged"
+                    x:Name="collectionView">
         <CollectionView.ItemTemplate>
             <DataTemplate>
                 <views:PreviewView
                 Image="{Binding ImageSmall}"
                 Title="{Binding Title}"
                 Author="{Binding Author.Name}"
-                Status="Non lu"
+                Status="{Binding Status}"
                 />
             </DataTemplate>
         </CollectionView.ItemTemplate>

@@ -5,9 +5,8 @@
              xmlns:controls="clr-namespace:PocketLib.Pages.Views"
              x:Class="PocketLib.Pages.DetailsPage"
              Shell.NavBarIsVisible="True"
+             x:Name="Root"
              Title="DetailsPage">
-
-
     <Shell.TitleView>
         <controls:HeaderView
             Label="Détails du livre"
@@ -20,12 +19,16 @@
 
             <BoxView HeightRequest="0.5" Color="LightGray"/>
 
-            <controls:DetailsView BindingContext="detailsVM.Mgr.selectedBook"
+            <controls:DetailsView BindingContext="{Binding detailsVM.Mgr.SelectedBook, Source={x:Reference Root}}"
                 Title="{Binding Title}"
-                Image="horde_contrevenant.jpg"
-                Author="MOI"
-                Resume="Super resume"
-                Edition="Une super maison d'édition"
+                Image="{Binding ImageMedium}"
+                Author="{Binding Author.Name}"
+                Resume="Les résumés ne sont pas encore disponible."
+                Edition="{Binding Edition}"
+                NbPages="{Binding NbPages}"
+                Language="{Binding Language}"
+                ISBN13="{Binding ISBN13}"
+                Status="{Binding Status}"
                 ></controls:DetailsView>
             
         </StackLayout>

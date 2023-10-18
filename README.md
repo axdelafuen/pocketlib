@@ -2,7 +2,9 @@
 
 ### To-Do
 
-- [ ] Faire le SelectionChanged de la CollectionView
+- [ ] Gérer les enum pour avoir des strings propre et modifiable (pas la merde qu'il ya dans le constructeur de BookVM actuellement)
+
+- [ ] mon mvvm tool kit ?
 
 - [ ] Faire les views de DetailsPage en BindableProperty + le bindings de la DetailsPage
 
@@ -13,6 +15,8 @@
 - [ ] Faire en sorte que le menu contextuel soit accessible depuis toutes les pages
 
 - [ ] Ajouter la vue de scan
+
+- [x] Faire le SelectionChanged de la CollectionView
 
 - [x] Completer le navigatorVM
 
