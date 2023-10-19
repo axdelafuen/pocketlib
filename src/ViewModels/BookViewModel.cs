@@ -26,7 +26,7 @@ public class BookViewModel
 
     public AuthorViewModel Author { get; set; }
 
-    public string Status { get; set; }
+    public Status Status => Book.Status;
 
     public float? UserRating => Book.UserRating;
     
@@ -49,28 +49,6 @@ public class BookViewModel
                 Authors.Add(b);            
             }
             Author = Authors.First();
-        }
-        switch (Book.Status)
-        {
-            case Model.Status.Finished:
-                Status = "Terminé";
-                break;
-            case Model.Status.Reading:
-                Status = "En lecture";
-                break;
-            case Model.Status.NotRead:
-                Status = "Non lu";
-                break;
-            case Model.Status.ToBeRead:
-                Status = "A lire";
-                break;
-            case Model.Status.Unknown:
-                Status = "Aucune information";
-                break;
-            default:
-                Status = "Aucune information";
-                break;
-            
         }
     }
 }

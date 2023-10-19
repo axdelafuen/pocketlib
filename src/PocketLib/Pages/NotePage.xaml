@@ -25,14 +25,12 @@
                 Image="horde_contrevenant.jpg"
                 Title="La horde du contrevenant"
                 Author="Alain Damasio"
-                Status="Non lu"
                 ActionCommand="{Binding GoToDetailsCommand}"
             />
             <controls:PreviewView
                 Image="zone_du_dehors.jpg"
                 Title="La zone du dehors"
                 Author="Alain Damasio"
-                Status="Terminé"
                 ActionCommand="{Binding GoToDetailsCommand}"
             />
             <controls:SeparatorWithTitle
@@ -42,13 +40,11 @@
                 Image="equateur_einstein.jpg"
                 Title="L'équateur d'Einstein"
                 Author="Cixin Liu"
-                Status="Terminé"
             />
             <controls:PreviewView
                 Image="equateur_einstein.jpg"
                 Title="L'équateur d'Einstein"
                 Author="Cixin Liu"
-                Status="Terminé"
             />
 
             <BoxView HeightRequest="0.5" Color="LightGray"/>

@@ -1,4 +1,5 @@
 using System.Windows.Input;
+using Model;
 
 namespace PocketLib.Pages.Views;
 
@@ -28,11 +29,11 @@ public partial class PreviewView : ContentView
         set => SetValue(AuthorProperty, value);
     }
 
-    public static readonly BindableProperty StatusProperty = BindableProperty.Create("Status", typeof(string), typeof(PreviewView));
+    public static readonly BindableProperty StatusProperty = BindableProperty.Create("Status", typeof(Status), typeof(PreviewView));
 
     public string Status
     {
-        get => GetValue(StatusProperty) as string;
+        get => GetValue(StatusProperty).ToString();
         set => SetValue(StatusProperty, value);
     }
 

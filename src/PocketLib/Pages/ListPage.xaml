@@ -18,8 +18,8 @@
     </Shell.TitleView>
 
     <CollectionView ItemsSource="{Binding ListPageVM.Mgr.Books}" 
-                    SelectionMode="Single" SelectionChanged="SelectableItemsView_OnSelectionChanged"
-                    x:Name="collectionView">
+                    SelectionMode="Single" SelectionChangedCommand=""
+                    >
         <CollectionView.ItemTemplate>
             <DataTemplate>
                 <views:PreviewView

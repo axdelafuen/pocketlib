@@ -68,11 +68,11 @@ public partial class DetailsView : ContentView
         set => SetValue(ISBN13Property, value);
     }
     
-    public static readonly BindableProperty StatusProperty = BindableProperty.Create("Status", typeof(string), typeof(DetailsView));
+    public static readonly BindableProperty StatusProperty = BindableProperty.Create("Status", typeof(Status), typeof(DetailsView));
 
     public string Status
     {
-        get => GetValue(StatusProperty) as string;
+        get => GetValue(StatusProperty).ToString();
         set => SetValue(StatusProperty, value);
     }
 

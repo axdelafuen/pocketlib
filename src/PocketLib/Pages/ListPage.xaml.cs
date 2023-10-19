@@ -12,14 +12,15 @@ public partial class ListPage : ContentPage
 		InitializeComponent();
 		BindingContext = this;
 	}
-
-	private void SelectableItemsView_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
+	
+	// A mettre dans la VM (je ne sais pas comment faire)
+	public void SelectableItemsView_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
 	{
 		if (e.CurrentSelection.Count > 0)
 		{
 			ListPageVM.Mgr.SelectedBook = (e.CurrentSelection[0] as BookViewModel);
 			ListPageVM.GoToAndLoadCommand.Execute(null);
-			collectionView.SelectedItem = null;
+			(sender as CollectionView).SelectedItem = null; 
 		}
 	}
 }
