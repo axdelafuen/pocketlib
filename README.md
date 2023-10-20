@@ -6,8 +6,6 @@
 
 - [ ] mon mvvm tool kit ?
 
-- [ ] Faire les views de DetailsPage en BindableProperty + le bindings de la DetailsPage
-
 - [ ] Faire fonctionner sonar
 
 - [ ] Refaire la page de pret `LoanPage.xaml`, en reprennant le code forké de l'énoncé
@@ -15,6 +13,8 @@
 - [ ] Faire en sorte que le menu contextuel soit accessible depuis toutes les pages
 
 - [ ] Ajouter la vue de scan
+
+- [x] Faire les views de DetailsPage en BindableProperty + le bindings de la DetailsPage
 
 - [x] Faire le SelectionChanged de la CollectionView
 

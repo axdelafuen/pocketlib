@@ -2,16 +2,16 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
-             xmlns:controls="clr-namespace:PocketLib.Pages.Views"
+             xmlns:views="clr-namespace:PocketLib.Pages.Views"
              x:Class="PocketLib.Pages.DetailsPage"
              Shell.NavBarIsVisible="True"
              x:Name="Root"
              Title="DetailsPage">
     <Shell.TitleView>
-        <controls:HeaderView
+        <views:HeaderView
             Label="Détails du livre"
             >
-        </controls:HeaderView>
+        </views:HeaderView>
     </Shell.TitleView>
 
     <ScrollView>
@@ -19,7 +19,7 @@
 
             <BoxView HeightRequest="0.5" Color="LightGray"/>
 
-            <controls:DetailsView BindingContext="{Binding detailsVM.Mgr.SelectedBook, Source={x:Reference Root}}"
+            <views:DetailsView BindingContext="{Binding detailsVM.Mgr.SelectedBook, Source={x:Reference Root}}"
                 Title="{Binding Title}"
                 Image="{Binding ImageMedium}"
                 Author="{Binding Author.Name}"
@@ -29,7 +29,8 @@
                 Language="{Binding Language}"
                 ISBN13="{Binding ISBN13}"
                 Status="{Binding Status}"
-                ></controls:DetailsView>
+                ChangeStatusCommand="{Binding detailsVM.ChangeStatusCommand,Source={x:Reference Root}}"
+                ></views:DetailsView>
             
         </StackLayout>
     </ScrollView>

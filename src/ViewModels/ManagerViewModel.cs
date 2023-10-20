@@ -65,6 +65,8 @@ public class ManagerViewModel : INotifyPropertyChanged
 
     private readonly ObservableCollection<BookViewModel> books = new ObservableCollection<BookViewModel>();
     
+    // Model methods
+
     private async Task GetBooksFromCollection(int index, int count)
     {
         var result = await Manager.GetBooksFromCollection(index, count);
@@ -77,6 +79,8 @@ public class ManagerViewModel : INotifyPropertyChanged
         }
     }
     
+    //private void ChangeStatus
+
     // Command to load datas
 
     public ICommand GetBooksFromCollectionCommand { get; set; }

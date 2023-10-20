@@ -1,4 +1,5 @@
 using Model;
+using System.Windows.Input;
 
 namespace PocketLib.Pages.Views;
 
@@ -74,6 +75,14 @@ public partial class DetailsView : ContentView
     {
         get => GetValue(StatusProperty).ToString();
         set => SetValue(StatusProperty, value);
+    }
+
+    public static readonly BindableProperty ChangeStatusCommandProperty = BindableProperty.Create("ChangeStatusCommand", typeof(ICommand), typeof(DetailsView));
+
+    public ICommand ChangeStatusCommand
+    {
+        get => GetValue(ChangeStatusCommandProperty) as ICommand;
+        set => SetValue(ChangeStatusCommandProperty, value);
     }
 
     public DetailsView()

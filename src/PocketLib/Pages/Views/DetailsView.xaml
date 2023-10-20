@@ -2,6 +2,7 @@
 <ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:controls="clr-namespace:PocketLib.Pages.Views"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              x:Class="PocketLib.Pages.Views.DetailsView"
              x:Name="root">
     <ScrollView>
@@ -94,6 +95,7 @@
             <BoxView HeightRequest="0.5" Color="LightGray"/>
             <controls:ButtonViewNoChevron
                 Label="Changer le statut de lecture"
+                ActionCommand="{Binding ChangeStatusCommand,Source={x:Reference root}}"
                 Image="monochrome_eyeglasses.svg"
                 />
             <BoxView HeightRequest="0.5" Color="LightGray"/>
