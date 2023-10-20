@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             xmlns:ctrl="clr-namespace:PocketLib.Controls"
              xmlns:views="clr-namespace:PocketLib.Pages.Views"
              xmlns:pages="clr-namespace:PocketLib.Pages"
              x:Class="PocketLib.Pages.ListPage"
@@ -9,6 +10,10 @@
              x:Name="Root"
              Title="Tous">
 
+    <ContentPage.Resources>
+        <ctrl:PaginationConverter x:Key="PaginationConverter"/>
+    </ContentPage.Resources>
+    
     <Shell.TitleView>
         <views:HeaderView
             Label="Tous"
@@ -17,48 +22,50 @@
             >
         </views:HeaderView>
     </Shell.TitleView>
-    
-    <Grid RowDefinitions="Auto" RowSpacing="500">
-        <CollectionView ItemsSource="{Binding ListPageVM.Mgr.Books}" 
-                SelectionMode="Single" SelectionChanged="SelectableItemsView_OnSelectionChanged"
-                >
-            <CollectionView.ItemTemplate>
-                <DataTemplate>
-                        <views:PreviewView
-                            Image="{Binding ImageSmall}"
-                            Title="{Binding Title}"
-                            Author="{Binding Author.Name}"
-                            Status="{Binding Status}"
-                            />
-                </DataTemplate>
-            </CollectionView.ItemTemplate>
-        </CollectionView>
+    <ScrollView>
+        <StackLayout>
+            <CollectionView ItemsSource="{Binding ListPageVM.Mgr.Books}" 
+                            SelectionMode="Single" SelectionChanged="SelectableItemsView_OnSelectionChanged"
+            >
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                            <views:PreviewView
+                                Image="{Binding ImageSmall}"
+                                Title="{Binding Title}"
+                                Author="{Binding Author.Name}"
+                                Status="{Binding Status}"
+                                />
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
 
-        <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="3*"></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
-                <ColumnDefinition Width="3*"></ColumnDefinition>
-            </Grid.ColumnDefinitions>
-            <ImageButton Grid.Column="1" Source="monochrome_chevron_left.svg" HorizontalOptions="Center">
-                <ImageButton.Behaviors>
-                    <toolkit:IconTintColorBehavior TintColor="Red" />
-                </ImageButton.Behaviors>
-            </ImageButton>
-            <Label Grid.Column="2" Text="1" HorizontalOptions="Center" VerticalOptions="Center" FontSize="16"></Label>
-            <Label Grid.Column="3" Text="/" HorizontalOptions="Center" VerticalOptions="Center" FontSize="16"></Label>
-            <Label Grid.Column="4" Text="2" HorizontalOptions="Center" VerticalOptions="Center" FontSize="16"></Label>
-            <ImageButton Grid.Column="5" Source="monochrome_chevron_right.svg" HorizontalOptions="Center">
-                <ImageButton.Behaviors>
-                    <toolkit:IconTintColorBehavior TintColor="Red" />
-                </ImageButton.Behaviors>
-            </ImageButton>
-        </Grid>
+            <Grid BackgroundColor="White" Padding="10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="3*"></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition Width="3*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <ImageButton Grid.Column="1" Source="monochrome_chevron_left.svg" HorizontalOptions="Center" Command="{Binding ListPageVM.PrevPageCommand,Source={x:Reference Root}}">
+                    <ImageButton.Behaviors>
+                        <toolkit:IconTintColorBehavior TintColor="Red" />
+                    </ImageButton.Behaviors>
+                </ImageButton>
+                <Label Grid.Column="2" Text="{Binding  ListPageVM.Mgr.Index, Source={x:Reference Root}, Converter={StaticResource PaginationConverter}}" HorizontalOptions="Center" VerticalOptions="Center" FontSize="16"></Label>
+                <Label Grid.Column="3" Text="/" HorizontalOptions="Center" VerticalOptions="Center" FontSize="16"></Label>
+                <Label Grid.Column="4" Text="{Binding ListPageVM.Mgr.NbPages,Source={x:Reference Root}, Converter={StaticResource PaginationConverter}}" HorizontalOptions="Center" VerticalOptions="Center" FontSize="16"></Label>
+                <ImageButton Grid.Column="5" Source="monochrome_chevron_right.svg" HorizontalOptions="Center" Command="{Binding ListPageVM.NextPageCommand,Source={x:Reference Root}}">
+                    <ImageButton.Behaviors>
+                        <toolkit:IconTintColorBehavior TintColor="Red" />
+                    </ImageButton.Behaviors>
+                </ImageButton>
+            </Grid>
 
-    </Grid>
+        </StackLayout>
+    </ScrollView>
+
 </ContentPage>
 

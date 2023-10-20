@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Net.WebSockets;
 using System.Runtime.CompilerServices;
 using System.Windows.Input;
 using InsaneMVVMToolKit;
@@ -18,19 +19,32 @@ public class ManagerViewModel : INotifyPropertyChanged
         Manager = manager;
         Books = new ReadOnlyObservableCollection<BookViewModel>(books);
         GetBooksFromCollectionCommand = new RelayCommand<EventArgs>(GetBooksFromCollectionCommandExecute);
+        Index = 0;
     }
 
     public ManagerViewModel(ILibraryManager libraryManager, IUserLibraryManager userLibraryManager)
         :this(new Manager(libraryManager, userLibraryManager)){}
 
     //Model properties
-    
-    public int Index { get; set; }
+
+
+    private int index = 0;
+
+    public int Index
+    {
+        get => index;
+        set
+        {
+            index = value;
+            GetBooksFromCollectionCommand.Execute(null);
+            OnPropertyChanged();
+        }
+    }
 
     private int count = 10;
     public int Count
     {
-        get { return count; }
+        get => count;
         set
         {
             if (count != value)
@@ -43,7 +57,7 @@ public class ManagerViewModel : INotifyPropertyChanged
     
     private long NbBooks { get; set; }
 
-    private long NbPages { get; set; }
+    public int NbPages => (int)NbBooks % Count;
 
     private BookViewModel selectedBook;
 
@@ -66,7 +80,7 @@ public class ManagerViewModel : INotifyPropertyChanged
     private readonly ObservableCollection<BookViewModel> books = new ObservableCollection<BookViewModel>();
     
     // Model methods
-
+    
     private async Task GetBooksFromCollection(int index, int count)
     {
         var result = await Manager.GetBooksFromCollection(index, count);

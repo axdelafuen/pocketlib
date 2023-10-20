@@ -26,7 +26,11 @@ public class BookViewModel
 
     public AuthorViewModel Author { get; set; }
 
-    public Status Status => Book.Status;
+    public Status Status
+    {
+        get => Book.Status;
+        set => Book.Status = value;
+    }
 
     public float? UserRating => Book.UserRating;
     
