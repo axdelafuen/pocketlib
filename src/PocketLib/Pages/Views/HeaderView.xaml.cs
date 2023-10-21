@@ -36,15 +36,7 @@ public partial class HeaderView : ContentView
         get => GetValue(ActionCommandProperty) as ICommand;
         set => SetValue(ActionCommandProperty, value);
     }
-
-    private void TapGestureRecognizer_Tapped(object sender, TappedEventArgs e)
-    {
-        if (ActionCommand != null && ActionCommand.CanExecute(null))
-        {
-            ActionCommand.Execute(null);
-        }
-    }
-
+    
     public HeaderView()
 	{
 		InitializeComponent();

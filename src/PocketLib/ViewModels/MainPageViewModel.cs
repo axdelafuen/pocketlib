@@ -5,13 +5,14 @@ namespace PocketLib.ViewModels;
 
 public class MainPageViewModel : BindableObject
 {
-    private ManagerViewModel Mgr { get; set; }
+    public ManagerViewModel Mgr { get; set; }
     
     private NavigatorViewModel Nav { get; set; }
     
     public MainPageViewModel(NavigatorViewModel navigatorViewModel, ManagerViewModel managerViewModel)
     {
         GoToAndLoadCommand = new Command<String>(GoToAndLoadCommandExecute);
+        AddBookToCollectionByIsbnCommand = new Command(AddBookToCollectionByIsbnCommandExecute);
         Mgr = managerViewModel;
         Nav = navigatorViewModel;
     }
@@ -28,4 +29,13 @@ public class MainPageViewModel : BindableObject
                 break;
         }
     }
+    
+    public ICommand AddBookToCollectionByIsbnCommand{ get; set; }
+
+    private async void AddBookToCollectionByIsbnCommandExecute()
+    {
+        string result = await Application.Current.MainPage.DisplayPromptAsync("Saisir l'ISBN (13)", "Pour ajouter un livre à la collection", "Ok", "Fermer");
+        Mgr.AddBookToCollectionByIsbnCommand.Execute(result);
+    }
+    
 }

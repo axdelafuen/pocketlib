@@ -23,25 +23,16 @@
         />
 
         <HorizontalStackLayout
-            HorizontalOptions="End"
+            HorizontalOptions="End" 
+            FlowDirection="LeftToRight"
             Grid.Column="1">
-
-            <ImageButton 
-                Margin="10,0"
-                Source="{Binding Image2, Source={x:Reference root}}"
-                MaximumWidthRequest="16"
-                HorizontalOptions="Center"
-                >
-                <ImageButton.Behaviors>
-                    <toolkit:IconTintColorBehavior TintColor="Red" />
-                </ImageButton.Behaviors>
-            </ImageButton>
 
             <ImageButton 
                 Margin="10,0"
                 Source="{Binding Image1, Source={x:Reference root}}"
                 MaximumWidthRequest="20"
                 HorizontalOptions="Center"
+                the49:ContextMenu.ShowMenuOnClick="True"
             >
                 <ImageButton.Behaviors>
                     <toolkit:IconTintColorBehavior TintColor="Red" />
@@ -54,11 +45,23 @@
                                 <the49:Action Title="Scanner des codes-barres" />
                             </the49:Group>
                             <the49:Action Title="Rechercher en ligne" />
-                            <the49:Action Title="Saisir l'ISBN" />
+                            <the49:Action Title="Saisir l'ISBN" Command="{Binding ActionCommand,Source={x:Reference root}}"/>
                         </the49:Menu>
                     </DataTemplate>
                 </the49:ContextMenu.Menu>
             </ImageButton>
+            
+            <ImageButton 
+                Margin="10,0"
+                Source="{Binding Image2, Source={x:Reference root}}"
+                MaximumWidthRequest="20"
+                HorizontalOptions="Center"
+            >
+                <ImageButton.Behaviors>
+                    <toolkit:IconTintColorBehavior TintColor="Red" />
+                </ImageButton.Behaviors>
+            </ImageButton>
+            
         </HorizontalStackLayout>
     </Grid>
 </ContentView>

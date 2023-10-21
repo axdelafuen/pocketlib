@@ -15,6 +15,7 @@ public class ListPageViewModel
         GoToAndLoadCommand = new Command(GoToAndLoadCommandExecute);
         PrevPageCommand = new Command(PrevPageCommandExecute);
         NextPageCommand = new Command(NextPageCommandExecute);
+        AddBookToCollectionByIsbnCommand = new Command(AddBookToCollectionByIsbnCommandExecute);
         Mgr = managerViewModel;
         Nav = navigatorViewModel;
     }
@@ -37,12 +38,19 @@ public class ListPageViewModel
             Mgr.Index--;
         }
     }
-
     private void NextPageCommandExecute()
     {
         if (Mgr.Index < Mgr.NbPages)
         {
             Mgr.Index++;
         }
+    }
+    
+    public ICommand AddBookToCollectionByIsbnCommand{ get; set; }
+
+    private async void AddBookToCollectionByIsbnCommandExecute()
+    {
+        string result = await Application.Current.MainPage.DisplayPromptAsync("Saisir l'ISBN (13)", "Pour ajouter un livre à la collection", "Ok", "Fermer");
+        Mgr.AddBookToCollectionByIsbnCommand.Execute(result);
     }
 }

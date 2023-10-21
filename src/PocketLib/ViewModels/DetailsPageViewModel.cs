@@ -26,13 +26,16 @@ public class DetailsPageViewModel
             switch (status)
             {
                 case "À lire":
-                    // Change status of the book to A lire
+                    Mgr.SelectedBook.Status = Status.ToBeRead;
                     break;
                 case "En lecture":
+                    Mgr.SelectedBook.Status = Status.Reading;
                     break;
                 case "Non lu":
+                    Mgr.SelectedBook.Status = Status.NotRead;
                     break;
                 case "Terminé":
+                    Mgr.SelectedBook.Status = Status.Finished;
                     break;
                 default:
                     break;

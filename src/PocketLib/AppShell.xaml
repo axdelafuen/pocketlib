@@ -16,13 +16,10 @@
         <ShellContent
             Title="Ma liste"
             Icon="monochrome_list_bullet.svg"
-            ContentTemplate="{DataTemplate pages:ListPage}"
-            Route="ListPage"
         />
         <ShellContent
             Title="Mes lectures"
             Icon="monochrome_bookmark_fill.svg"
-            ContentTemplate="{DataTemplate pages:ListPage}"
         />
         <ShellContent
             Title="Recherche"

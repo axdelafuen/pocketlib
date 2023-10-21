@@ -1,9 +1,9 @@
-﻿using System.Collections;
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
 using System.ComponentModel;
-using System.Net.WebSockets;
 using System.Runtime.CompilerServices;
 using System.Windows.Input;
+using CommunityToolkit.Maui.Alerts;
+using CommunityToolkit.Maui.Core;
 using InsaneMVVMToolKit;
 using Model;
 
@@ -19,7 +19,8 @@ public class ManagerViewModel : INotifyPropertyChanged
         Manager = manager;
         Books = new ReadOnlyObservableCollection<BookViewModel>(books);
         GetBooksFromCollectionCommand = new RelayCommand<EventArgs>(GetBooksFromCollectionCommandExecute);
-        Index = 0;
+        AddBookToCollectionByIsbnCommand = new RelayCommand<string>(AddBookToCollectionByIsbnCommandExecute);
+        GetBooksCount(Index, Count);
     }
 
     public ManagerViewModel(ILibraryManager libraryManager, IUserLibraryManager userLibraryManager)
@@ -37,6 +38,7 @@ public class ManagerViewModel : INotifyPropertyChanged
         {
             index = value;
             GetBooksFromCollectionCommand.Execute(null);
+            OnPropertyChanged(nameof(GroupedBooks));
             OnPropertyChanged();
         }
     }
@@ -55,7 +57,7 @@ public class ManagerViewModel : INotifyPropertyChanged
         }
     }
     
-    private long NbBooks { get; set; }
+    public long NbBooks { get; private set; }
 
     public int NbPages => (int)NbBooks % Count;
 
@@ -70,12 +72,10 @@ public class ManagerViewModel : INotifyPropertyChanged
             OnPropertyChanged();
         }
     }
+    
+    public IEnumerable<IGrouping<string, BookViewModel>> GroupedBooks => Books.GroupBy(b => b.Author.Name).OrderBy(group => group.Key);
 
-    public ReadOnlyObservableCollection<BookViewModel> Books
-    {
-        get;
-        set;
-    }
+    public ReadOnlyObservableCollection<BookViewModel> Books { get; set; }
 
     private readonly ObservableCollection<BookViewModel> books = new ObservableCollection<BookViewModel>();
     
@@ -92,9 +92,34 @@ public class ManagerViewModel : INotifyPropertyChanged
             books.Add(b);            
         }
     }
-    
-    //private void ChangeStatus
 
+    private async Task GetBooksCount(int index, int count)
+    {
+        var result = await Manager.GetBooksFromCollection(index, count);
+        NbBooks = result.count;
+    }
+
+    private async Task AddBookToCollectionByIsbn(string isbn)
+    {
+        try
+        {
+            var isbnResult = await Manager.GetBookByISBN(isbn);
+            var bookResult = await Manager.AddBookToCollection(isbnResult);
+            if(bookResult == null) _ = Toast.Make("Erreur : livre déja dans la bibliothèque", ToastDuration.Short, 14).Show(new CancellationTokenSource().Token);
+            else
+            {
+                GetBooksCount(Index, Count);
+                OnPropertyChanged(nameof(NbBooks));
+                OnPropertyChanged(nameof(GroupedBooks));
+                _ = Toast.Make("Livre ajouté !", ToastDuration.Short, 14).Show(new CancellationTokenSource().Token);
+            }
+        }
+        catch (Exception e)
+        {
+            _ = Toast.Make("Erreur : ISBN introuvable", ToastDuration.Short, 14).Show(new CancellationTokenSource().Token);
+        }
+    }
+    
     // Command to load datas
 
     public ICommand GetBooksFromCollectionCommand { get; set; }
@@ -102,6 +127,13 @@ public class ManagerViewModel : INotifyPropertyChanged
     private async void GetBooksFromCollectionCommandExecute(EventArgs args)
     {
         await GetBooksFromCollection(Index,count); 
+    }
+    
+    public ICommand AddBookToCollectionByIsbnCommand { get; set; }
+
+    private async void AddBookToCollectionByIsbnCommandExecute(string args)
+    {
+        await AddBookToCollectionByIsbn(args);
     }
 
     // Property changed method 

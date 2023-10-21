@@ -57,6 +57,11 @@ namespace Model
 			return UserLibraryManager.AddBook(id);
 		}
 
+		public Task<Book> AddBookToCollection(Book book)
+		{
+			return UserLibraryManager.AddBook(book);
+		}
+
 		public async Task<Book> GetBookByIdFromCollection(string id)
 			=> await UserLibraryManager.GetBookById(id);
 

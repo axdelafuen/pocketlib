@@ -12,20 +12,27 @@
 
     <ContentPage.Resources>
         <ctrl:PaginationConverter x:Key="PaginationConverter"/>
+        <DataTemplate x:Key="SeparatorWithTitle"><views:SeparatorWithTitle></views:SeparatorWithTitle></DataTemplate>
     </ContentPage.Resources>
     
     <Shell.TitleView>
         <views:HeaderView
             Label="Tous"
-            Image1="monochrome_arrow_up_arrow_down.svg"
-            Image2="plus.svg"
+            Image1="plus.svg"
+            Image2="monochrome_arrow_up_arrow_down.svg"
+            ActionCommand="{Binding ListPageVM.AddBookToCollectionByIsbnCommand,Source={x:Reference Root}}"
             >
         </views:HeaderView>
     </Shell.TitleView>
     <ScrollView>
         <StackLayout>
-            <CollectionView ItemsSource="{Binding ListPageVM.Mgr.Books}" 
-                            SelectionMode="Single" SelectionChanged="SelectableItemsView_OnSelectionChanged"
+            
+            <CollectionView 
+                IsGrouped="True"
+                GroupHeaderTemplate="{StaticResource GroupHeader}"
+                ItemsSource="{Binding ListPageVM.Mgr.GroupedBooks}" 
+                SelectionMode="Single" 
+                SelectionChanged="SelectableItemsView_OnSelectionChanged"
             >
                 <CollectionView.ItemTemplate>
                     <DataTemplate>

@@ -1,8 +1,10 @@
-﻿using Model;
+﻿using System.ComponentModel;
+using System.Runtime.CompilerServices;
+using Model;
 
 namespace ViewModels;
 
-public class BookViewModel
+public class BookViewModel : INotifyPropertyChanged
 {
     private Book Book { get; set; }
 
@@ -29,7 +31,11 @@ public class BookViewModel
     public Status Status
     {
         get => Book.Status;
-        set => Book.Status = value;
+        set
+        {
+            Book.Status = value;
+            OnPropertyChanged();
+        }
     }
 
     public float? UserRating => Book.UserRating;
@@ -54,5 +60,20 @@ public class BookViewModel
             }
             Author = Authors.First();
         }
+    }
+
+    public event PropertyChangedEventHandler? PropertyChanged;
+
+    protected virtual void OnPropertyChanged([CallerMemberName] string? propertyName = null)
+    {
+        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+    }
+
+    protected bool SetField<T>(ref T field, T value, [CallerMemberName] string? propertyName = null)
+    {
+        if (EqualityComparer<T>.Default.Equals(field, value)) return false;
+        field = value;
+        OnPropertyChanged(propertyName);
+        return true;
     }
 }

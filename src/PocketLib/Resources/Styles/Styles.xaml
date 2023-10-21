@@ -426,6 +426,24 @@
             </VisualStateGroupList>
         </Setter>
     </Style>
+    
+    <Style TargetType="Label" x:Key="GroupHeaderLabel">
+        <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource groupHeaderLabelLight}, Dark={StaticResource groupHeaderLabelDark}}"/>
+        <Setter Property="FontFamily" Value="Pro-Display-Semibold"/>
+        <Setter Property="FontAttributes" Value="Bold"/>
+        <Setter Property="VerticalOptions" Value="Center"/>
+        <Setter Property="Margin" Value="16,0"/>
+        <Setter Property="FontSize" Value="14"/>
+    </Style>
+    
+    <DataTemplate x:Key="GroupHeader">
+            <Grid BackgroundColor="{AppThemeBinding Light={StaticResource groupHeaderBackgroundLight}, Dark={StaticResource groupHeaderBackgroundDark}}"
+                    HorizontalOptions="Fill"
+                    RowDefinitions="30">
+                <Label Text="{Binding Key}" Style="{StaticResource GroupHeaderLabel}"/>
+            </Grid>
+        </DataTemplate>
+    
     <!--
     <Style TargetType="ContentPage">
         
