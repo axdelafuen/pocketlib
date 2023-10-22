@@ -20,7 +20,9 @@ public class ManagerViewModel : INotifyPropertyChanged
         Books = new ReadOnlyObservableCollection<BookViewModel>(books);
         GetBooksFromCollectionCommand = new RelayCommand<EventArgs>(GetBooksFromCollectionCommandExecute);
         AddBookToCollectionByIsbnCommand = new RelayCommand<string>(AddBookToCollectionByIsbnCommandExecute);
+        GetToBeReadBooksCommand = new RelayCommand<EventArgs>(GetToBeReadBooksCommandExecute);
         GetBooksCount(Index, Count);
+        GetToBeReadBooksCount(Index, Count);
     }
 
     public ManagerViewModel(ILibraryManager libraryManager, IUserLibraryManager userLibraryManager)
@@ -28,6 +30,17 @@ public class ManagerViewModel : INotifyPropertyChanged
 
     //Model properties
 
+    private string pageTitle;
+    
+    public string PageTitle
+    {
+        get { return pageTitle;}
+        set
+        {
+            pageTitle = value;
+            OnPropertyChanged();
+        }
+    }
 
     private int index = 0;
 
@@ -37,8 +50,7 @@ public class ManagerViewModel : INotifyPropertyChanged
         set
         {
             index = value;
-            GetBooksFromCollectionCommand.Execute(null);
-            OnPropertyChanged(nameof(GroupedBooks));
+            GetBooksFromCollection(Index, Count);
             OnPropertyChanged();
         }
     }
@@ -57,9 +69,13 @@ public class ManagerViewModel : INotifyPropertyChanged
         }
     }
     
-    public long NbBooks { get; private set; }
+    public long NbBooks {get;set;}
+    
+    public long NbBooksAll { get; private set; }
 
-    public int NbPages => (int)NbBooks % Count;
+    public long NbBookToBeRead { get; private set; }
+    
+    public int NbPages => (int)NbBooks / Count;
 
     private BookViewModel selectedBook;
 
@@ -70,6 +86,7 @@ public class ManagerViewModel : INotifyPropertyChanged
         {
             selectedBook = value;
             OnPropertyChanged();
+            OnPropertyChanged(nameof(GroupedBooks));
         }
     }
     
@@ -89,14 +106,53 @@ public class ManagerViewModel : INotifyPropertyChanged
         books.Clear();
         foreach (var b in resBooks.Select(b => new BookViewModel(b)))
         {
-            books.Add(b);            
+            books.Add(b);
         }
+
+        OnPropertyChanged(nameof(GroupedBooks));
+        OnPropertyChanged(nameof(NbBooks));
+        OnPropertyChanged(nameof(NbPages));
+
     }
 
-    private async Task GetBooksCount(int index, int count)
+    private async Task GetToBeReadBooks(int index, int count)
+    {
+        var result = await Manager.GetBooksFromCollection(index, count);
+        IEnumerable<Book> resBooks = result.books;
+        NbBooks = 0;
+        books.Clear();
+        foreach (var b in resBooks.Select(b => new BookViewModel(b)))
+        {
+            if (b.Status == Status.ToBeRead)
+            {
+                books.Add(b);
+                NbBooks++;
+            }
+        }
+        OnPropertyChanged(nameof(GroupedBooks));
+        OnPropertyChanged(nameof(NbBooks));
+        OnPropertyChanged(nameof(NbPages));
+    }
+
+    private async Task GetToBeReadBooksCount(int index, int count)
     {
         var result = await Manager.GetBooksFromCollection(index, count);
         NbBooks = result.count;
+        IEnumerable<Book> resBooks = result.books;
+        NbBookToBeRead = 0;
+        foreach (var b in resBooks.Select(b => new BookViewModel(b)))
+        {
+            if (b.Status == Status.ToBeRead)
+            {
+                NbBookToBeRead++;
+            }
+        }
+    }
+    
+    private async Task GetBooksCount(int index, int count)
+    {
+        var result = await Manager.GetBooksFromCollection(index, count);
+        NbBooksAll = result.count;
     }
 
     private async Task AddBookToCollectionByIsbn(string isbn)
@@ -126,7 +182,7 @@ public class ManagerViewModel : INotifyPropertyChanged
 
     private async void GetBooksFromCollectionCommandExecute(EventArgs args)
     {
-        await GetBooksFromCollection(Index,count); 
+        await GetBooksFromCollection(Index,count);
     }
     
     public ICommand AddBookToCollectionByIsbnCommand { get; set; }
@@ -135,7 +191,14 @@ public class ManagerViewModel : INotifyPropertyChanged
     {
         await AddBookToCollectionByIsbn(args);
     }
+    
+    public ICommand GetToBeReadBooksCommand { get; set; }
 
+    private async void GetToBeReadBooksCommandExecute(EventArgs args)
+    {
+        await GetToBeReadBooks(index, count);
+    }
+    
     // Property changed method 
     public event PropertyChangedEventHandler? PropertyChanged;
 

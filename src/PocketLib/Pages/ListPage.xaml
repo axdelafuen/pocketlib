@@ -7,8 +7,7 @@
              xmlns:pages="clr-namespace:PocketLib.Pages"
              x:Class="PocketLib.Pages.ListPage"
              Shell.NavBarIsVisible="True"
-             x:Name="Root"
-             Title="Tous">
+             x:Name="Root">
 
     <ContentPage.Resources>
         <ctrl:PaginationConverter x:Key="PaginationConverter"/>
@@ -17,7 +16,7 @@
     
     <Shell.TitleView>
         <views:HeaderView
-            Label="Tous"
+            Label="{Binding ListPageVM.Mgr.PageTitle,Source={x:Reference Root}}"
             Image1="plus.svg"
             Image2="monochrome_arrow_up_arrow_down.svg"
             ActionCommand="{Binding ListPageVM.AddBookToCollectionByIsbnCommand,Source={x:Reference Root}}"

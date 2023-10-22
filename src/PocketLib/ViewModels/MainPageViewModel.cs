@@ -23,9 +23,32 @@ public class MainPageViewModel : BindableObject
     {
         switch (arg)
         {
-            case "ListPage":
+            case "Tous":
                 Mgr.GetBooksFromCollectionCommand.Execute(null);
                 Nav.GoToNavigationCommand.Execute("ListPage");
+                Mgr.PageTitle = "Tous";
+                break;
+            case "PretPage":
+                Nav.GoToNavigationCommand.Execute("LoanPage");
+                Mgr.PageTitle = "En prêt";
+                break;
+            case "ALirePlusTardPage":
+                Mgr.GetToBeReadBooksCommand.Execute(null);
+                Nav.GoToNavigationCommand.Execute("ListPage");
+                Mgr.PageTitle = "À lire plus tard";
+                break;
+            case "StatusPage":
+                Nav.GoToNavigationCommand.Execute("TempPage");
+                Mgr.PageTitle = "Statut de lecture";
+                break;
+            case "AuteurPage":
+                Nav.GoToNavigationCommand.Execute("AuthorPage");
+                break;
+            case "DatePage":
+                Nav.GoToNavigationCommand.Execute("DatePage");
+                break;
+            default:
+                Nav.GoToNavigationCommand.Execute("TempPage");
                 break;
         }
     }

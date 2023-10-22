@@ -30,7 +30,7 @@ public class ListPageViewModel
     {
         Nav.GoToNavigationCommand.Execute("DetailsPage");
     }
-    
+    // Mgr.GetBooksFromCollectionCommand.Execute(null);
     private void PrevPageCommandExecute()
     {
         if (Mgr.Index > 0)
