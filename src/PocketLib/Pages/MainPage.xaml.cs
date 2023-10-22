@@ -1,14 +1,16 @@
-﻿using System.Windows.Input;
-using PocketLib.Models;
+﻿using PocketLib.ViewModels;
+using ViewModels;
+
 namespace PocketLib.Pages;
 
 public partial class MainPage : ContentPage
 {
-
-    public MainPage()
+    public MainPageViewModel MainPageVM { get; set; }
+    public MainPage(NavigatorViewModel navigatorViewModel, ManagerViewModel managerViewModel)
     {
+        MainPageVM = new MainPageViewModel(navigatorViewModel, managerViewModel);
         InitializeComponent();
-        BindingContext = new MainPageViewModel();
+        BindingContext = this;
     }
 }
 

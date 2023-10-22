@@ -1,8 +1,11 @@
 ﻿using CommunityToolkit.Maui;
 using The49.Maui.ContextMenu;
 using Microsoft.Extensions.Logging;
+using Model;
 using PocketLib.Pages;
-using PocketLib.Models;
+using PocketLib.ViewModels;
+using StubLib;
+using ViewModels;
 
 namespace PocketLib;
 
@@ -21,21 +24,15 @@ public static class MauiProgram
 				fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 fonts.AddFont("SF-Pro.ttf", "SF-Pro");
             });
-        builder.Services.AddScoped<MainPage>();
-        builder.Services.AddTransient<MainPageViewModel>();
-
-        builder.Services.AddScoped<ListPage>();
-        builder.Services.AddTransient<ListPageViewModel>();
-        
-        builder.Services.AddScoped<DetailsPage>();
-        builder.Services.AddTransient<DetailsPageViewModel>();
-
-        builder.Services.AddScoped<AuthorPage>();
-        builder.Services.AddTransient<AuthorPageViewModel>();
-
-        builder.Services.AddScoped<DatePage>();
-        builder.Services.AddTransient<DatePageViewModel>();
-
+		
+		builder.Services.AddSingleton<NavigatorViewModel>()
+						.AddSingleton<ILibraryManager, LibraryStub>()
+						.AddSingleton<IUserLibraryManager, UserLibraryStub>()
+						.AddSingleton<ManagerViewModel>()
+						.AddSingleton<MainPage>()
+						.AddSingleton<ListPage>()
+						.AddSingleton<DetailsPage>()
+						.AddSingleton<SearchPage>();
 #if DEBUG
         builder.Logging.AddDebug();
 #endif

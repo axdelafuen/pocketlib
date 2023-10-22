@@ -1,18 +1,22 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:controls="clr-namespace:PocketLib.Pages"
+             xmlns:controls="clr-namespace:PocketLib.Pages.Views"
              x:Class="PocketLib.Pages.LoanPage"
-             Title="LoanPage">
+             Shell.NavBarIsVisible="True"
+             Title="En prêt">
+    
+    <Shell.TitleView>
+        <controls:HeaderView
+            Label="En prêt"
+            Image1="monochrome_arrow_up_arrow_down.svg"
+            Image2="plus.svg"
+        >
+        </controls:HeaderView>
+    </Shell.TitleView>
+
     <ScrollView>
         <StackLayout>
-            <controls:HeaderView
-             Label="Tous"
-             Image1="monochrome_arrow_up_arrow_down.svg"
-             Image2="plus.svg"
-             ActionCommand="{Binding GoBackCommand}"
-             >
-            </controls:HeaderView>
 
             <HorizontalStackLayout
                 HorizontalOptions="Center">
@@ -27,14 +31,13 @@
                 Image="horde_contrevenant.jpg"
                 Title="La horde du contrevenant"
                 Author="Alain Damasio"
-                Status="Non lu"
+                
                 ActionCommand="{Binding GoToDetailsCommand}"
             />
             <controls:PreviewView
                 Image="zone_du_dehors.jpg"
                 Title="La zone du dehors"
                 Author="Alain Damasio"
-                Status="Terminé"
                 ActionCommand="{Binding GoToDetailsCommand}"
             />
             <controls:SeparatorWithTitle
@@ -44,7 +47,6 @@
                  Image="equateur_einstein.jpg"
                  Title="L'équateur d'Einstein"
                  Author="Cixin Liu"
-                 Status="Terminé"
              />
             
         </StackLayout>

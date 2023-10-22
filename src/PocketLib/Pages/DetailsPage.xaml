@@ -2,20 +2,35 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
-             xmlns:controls="clr-namespace:PocketLib.Pages"
+             xmlns:views="clr-namespace:PocketLib.Pages.Views"
              x:Class="PocketLib.Pages.DetailsPage"
+             Shell.NavBarIsVisible="True"
+             x:Name="Root"
              Title="DetailsPage">
+    <Shell.TitleView>
+        <views:HeaderView
+            Label="Détails du livre"
+            >
+        </views:HeaderView>
+    </Shell.TitleView>
+
     <ScrollView>
         <StackLayout>
-            <controls:HeaderView
-                Label="Détails du livre"
-                ActionCommand="{Binding GoBackCommand}"
-                >
-            </controls:HeaderView>
 
             <BoxView HeightRequest="0.5" Color="LightGray"/>
 
-            <controls:DetailsView></controls:DetailsView>
+            <views:DetailsView BindingContext="{Binding detailsVM.Mgr.SelectedBook, Source={x:Reference Root}}"
+                Title="{Binding Title}"
+                Image="{Binding ImageMedium}"
+                Author="{Binding Author.Name}"
+                Resume="Les résumés ne sont pas encore disponible."
+                Edition="{Binding Edition}"
+                NbPages="{Binding NbPages}"
+                Language="{Binding Language}"
+                ISBN13="{Binding ISBN13}"
+                Status="{Binding Status}"
+                ChangeStatusCommand="{Binding detailsVM.ChangeStatusCommand,Source={x:Reference Root}}"
+                ></views:DetailsView>
             
         </StackLayout>
     </ScrollView>

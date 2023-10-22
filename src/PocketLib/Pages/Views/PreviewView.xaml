@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             x:Class="PocketLib.Pages.Views.PreviewView"
+             xmlns:controls="clr-namespace:PocketLib.Pages.Views"
+             x:Name="root"
+             >
+    <!--
+    <ContentView.GestureRecognizers>
+        <TapGestureRecognizer NumberOfTapsRequired="1" 
+                                Command="{Binding ActionCommand,Source={x:Reference root}}"
+                                CommandParameter="{Binding ActionCommandParameter,Source={x:Reference root}}"/>
+    </ContentView.GestureRecognizers>
+    -->
+    <Grid
+        Padding="0,5"
+        BindingContext="{x:Reference root}">
+        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80"></RowDefinition>
+        </Grid.RowDefinitions>
+        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="80"></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <Image
+            Source="{Binding Image, Source={x:Reference root}}"
+            Aspect="AspectFit"
+            HorizontalOptions="Center"
+            ></Image>
+
+        <StackLayout
+            Spacing="-10"
+            Grid.Column="1"
+            >
+
+            <Label
+                Text="{Binding Title, Source={x:Reference root}}"
+                FontAttributes="Bold"
+            ></Label>
+
+            <Label
+                Grid.Row="1"
+                Text="{Binding Author, Source={x:Reference root}}"
+            ></Label>
+
+            <Label
+                Grid.Row="2"
+                Text="{Binding Status, Source={x:Reference root}}"
+                TextColor="Gray"
+            ></Label>
+
+        </StackLayout>
+        
+        
+        <controls:StarsView Grid.Column="1" VerticalOptions="End"/>
+        
+    </Grid>
+
+</ContentView>

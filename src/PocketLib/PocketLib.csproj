@@ -37,11 +37,11 @@
 
 	<ItemGroup>
 		<!-- App Icon -->
-		<MauiIcon Include="Resources\AppIcon\icon.png" />
+		<MauiIcon Include="Resources\AppIcon\appicon.png" BaseSize="128, 128" />
 
 
 		<!-- Splash Screen -->
-		<MauiSplashScreen Include="Resources\Splash\splash.svg" Basesize="128,128" />
+		<MauiSplashScreen Include="Resources\Splash\mysplash.svg"/>
 
 		<!-- Images -->
 		<MauiImage Include="Resources\Images\*" BaseSize="26,26" />
@@ -57,14 +57,15 @@
 	<ItemGroup>
 		<PackageReference Include="CommunityToolkit.Maui" Version="5.3.0" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
+		<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
 		<PackageReference Include="The49.Maui.ContextMenu" Version="1.0.0-alpha1" />
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Compile Update="Pages\Controls\ButtonViewNoHeaderImage.xaml.cs">
+	  <Compile Update="Pages\Views\ButtonViewNoHeaderImage.xaml.cs">
 	    <DependentUpon>ButtonViewNoHeaderImage.xaml</DependentUpon>
 	  </Compile>
-	  <Compile Update="Pages\Controls\ButtonView.xaml.cs">
+	  <Compile Update="Pages\Views\ButtonView.xaml.cs">
 	    <DependentUpon>ButtonView.xaml</DependentUpon>
 	  </Compile>
 	  <Compile Update="Pages\ListPage.xaml.cs">
@@ -76,28 +77,25 @@
 	  <MauiXaml Update="Pages\AuthorPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Pages\Controls\ButtonViewNoChevron.xaml">
+	  <MauiXaml Update="Pages\Views\ButtonViewNoChevron.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Pages\Controls\DetailsView.xaml">
+	  <MauiXaml Update="Pages\Views\DetailsView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Pages\Controls\ButtonViewNoHeaderImage.xaml">
+	  <MauiXaml Update="Pages\Views\ButtonViewNoHeaderImage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Pages\Controls\PreviewView.xaml">
+	  <MauiXaml Update="Pages\Views\PreviewView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Pages\Controls\Resumeview.xaml">
+	  <MauiXaml Update="Pages\Views\SeparatorWithTitle.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Pages\Controls\SeparatorWithTitle.xaml">
+	  <MauiXaml Update="Pages\Views\StarsView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Pages\Controls\StarsView.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	  <MauiXaml Update="Pages\Controls\TitleAndDescView.xaml">
+	  <MauiXaml Update="Pages\Views\TitleAndDescView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Pages\DatePage.xaml">
@@ -106,16 +104,16 @@
 	  <MauiXaml Update="Pages\DetailsPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Pages\Controls\HeaderView.xaml">
+	  <MauiXaml Update="Pages\Views\HeaderView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Pages\ListPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Pages\Controls\ButtonView.xaml">
+	  <MauiXaml Update="Pages\Views\ButtonView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Pages\Controls\SearchBarView.xaml">
+	  <MauiXaml Update="Pages\Views\SearchBarView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Pages\LoanPage.xaml">
@@ -130,6 +128,16 @@
 	  <MauiXaml Update="Pages\TempPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\Model\Model.csproj" />
+	  <ProjectReference Include="..\Stub\Stub.csproj" />
+	  <ProjectReference Include="..\ViewModels\ViewModels.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="Resources\AppIcon\" />
 	</ItemGroup>
 
 </Project>

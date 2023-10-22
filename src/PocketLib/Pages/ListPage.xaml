@@ -1,96 +1,78 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:controls="clr-namespace:PocketLib.Pages"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             xmlns:ctrl="clr-namespace:PocketLib.Controls"
+             xmlns:views="clr-namespace:PocketLib.Pages.Views"
+             xmlns:pages="clr-namespace:PocketLib.Pages"
              x:Class="PocketLib.Pages.ListPage"
-             Title="ListPage">
-   
+             Shell.NavBarIsVisible="True"
+             x:Name="Root"
+             Title="Tous">
+
+    <ContentPage.Resources>
+        <ctrl:PaginationConverter x:Key="PaginationConverter"/>
+        <DataTemplate x:Key="SeparatorWithTitle"><views:SeparatorWithTitle></views:SeparatorWithTitle></DataTemplate>
+    </ContentPage.Resources>
+    
+    <Shell.TitleView>
+        <views:HeaderView
+            Label="Tous"
+            Image1="plus.svg"
+            Image2="monochrome_arrow_up_arrow_down.svg"
+            ActionCommand="{Binding ListPageVM.AddBookToCollectionByIsbnCommand,Source={x:Reference Root}}"
+            >
+        </views:HeaderView>
+    </Shell.TitleView>
     <ScrollView>
         <StackLayout>
-            <controls:HeaderView
-                Label="Tous"
-                Image1="monochrome_arrow_up_arrow_down.svg"
-                Image2="plus.svg"
-                ActionCommand="{Binding GoBackCommand}"
-                >
-            </controls:HeaderView>
-            <controls:SeparatorWithTitle
-                Title="Alain Damasio"
-            />
-            <controls:PreviewView
-                Image="horde_contrevenant.jpg"
-                Title="La horde du contrevenant"
-                Author="Alain Damasio"
-                Status="Non lu"
-                ActionCommand="{Binding GoToDetailsCommand}"
-            />
-            <controls:PreviewView
-                Image="zone_du_dehors.jpg"
-                Title="La zone du dehors"
-                Author="Alain Damasio"
-                Status="Terminé"
-                ActionCommand="{Binding GoToDetailsCommand}"
-            />
-            <controls:SeparatorWithTitle
-                Title="Cixin Liu"
-            />
-            <controls:PreviewView
-                Image="equateur_einstein.jpg"
-                Title="L'équateur d'Einstein"
-                Author="Cixin Liu"
-                Status="Terminé"
-            />
-            <controls:PreviewView
-                Image="equateur_einstein.jpg"
-                Title="L'équateur d'Einstein"
-                Author="Cixin Liu"
-                Status="Terminé"
-            />
-            <controls:PreviewView
-                Image="equateur_einstein.jpg"
-                Title="L'équateur d'Einstein"
-                Author="Cixin Liu"
-                Status="Terminé"
-            />
-            <controls:PreviewView
-                Image="equateur_einstein.jpg"
-                Title="L'équateur d'Einstein"
-                Author="Cixin Liu"
-                Status="Terminé"
-            />
-            <controls:PreviewView
-                Image="equateur_einstein.jpg"
-                Title="L'équateur d'Einstein"
-                Author="Cixin Liu"
-                Status="Terminé"
-            />
-            <controls:PreviewView
-                Image="equateur_einstein.jpg"
-                Title="L'équateur d'Einstein"
-                Author="Cixin Liu"
-                Status="Terminé"
-            />
-            <controls:PreviewView
-                Image="equateur_einstein.jpg"
-                Title="L'équateur d'Einstein"
-                Author="Cixin Liu"
-                Status="Terminé"
-            />
-            <controls:PreviewView
-                Image="equateur_einstein.jpg"
-                Title="L'équateur d'Einstein"
-                Author="Cixin Liu"
-                Status="Terminé"
-            />
-            <controls:PreviewView
-                Image="equateur_einstein.jpg"
-                Title="L'équateur d'Einstein"
-                Author="Cixin Liu"
-                Status="Terminé"
-            />
+            
+            <CollectionView 
+                IsGrouped="True"
+                GroupHeaderTemplate="{StaticResource GroupHeader}"
+                ItemsSource="{Binding ListPageVM.Mgr.GroupedBooks}" 
+                SelectionMode="Single" 
+                SelectionChanged="SelectableItemsView_OnSelectionChanged"
+            >
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                            <views:PreviewView
+                                Image="{Binding ImageSmall}"
+                                Title="{Binding Title}"
+                                Author="{Binding Author.Name}"
+                                Status="{Binding Status}"
+                                />
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
 
-
+            <Grid BackgroundColor="White" Padding="10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="3*"></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition Width="3*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <ImageButton Grid.Column="1" Source="monochrome_chevron_left.svg" HorizontalOptions="Center" Command="{Binding ListPageVM.PrevPageCommand,Source={x:Reference Root}}">
+                    <ImageButton.Behaviors>
+                        <toolkit:IconTintColorBehavior TintColor="Red" />
+                    </ImageButton.Behaviors>
+                </ImageButton>
+                <Label Grid.Column="2" Text="{Binding  ListPageVM.Mgr.Index, Source={x:Reference Root}, Converter={StaticResource PaginationConverter}}" HorizontalOptions="Center" VerticalOptions="Center" FontSize="16"></Label>
+                <Label Grid.Column="3" Text="/" HorizontalOptions="Center" VerticalOptions="Center" FontSize="16"></Label>
+                <Label Grid.Column="4" Text="{Binding ListPageVM.Mgr.NbPages,Source={x:Reference Root}, Converter={StaticResource PaginationConverter}}" HorizontalOptions="Center" VerticalOptions="Center" FontSize="16"></Label>
+                <ImageButton Grid.Column="5" Source="monochrome_chevron_right.svg" HorizontalOptions="Center" Command="{Binding ListPageVM.NextPageCommand,Source={x:Reference Root}}">
+                    <ImageButton.Behaviors>
+                        <toolkit:IconTintColorBehavior TintColor="Red" />
+                    </ImageButton.Behaviors>
+                </ImageButton>
+            </Grid>
 
         </StackLayout>
     </ScrollView>
+
 </ContentPage>
+

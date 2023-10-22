@@ -1,4 +1,4 @@
-using PocketLib.Models;
+using PocketLib.ViewModels;
 namespace PocketLib.Pages;
 
 public partial class DatePage : ContentPage
@@ -6,6 +6,5 @@ public partial class DatePage : ContentPage
 	public DatePage()
 	{
 		InitializeComponent();
-		BindingContext = new DatePageViewModel();
 	}
 }

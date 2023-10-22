@@ -1,11 +1,15 @@
-using PocketLib.Models;
+using PocketLib.ViewModels;
+using ViewModels;
+
 namespace PocketLib.Pages;
 
 public partial class DetailsPage : ContentPage
 {
-	public DetailsPage()
+	public DetailsPageViewModel detailsVM{  get; set; }
+	public DetailsPage(ManagerViewModel managerViewModel)
 	{
+		detailsVM = new DetailsPageViewModel(managerViewModel);
 		InitializeComponent();
-		BindingContext = new DetailsPageViewModel();
+		BindingContext = this;
 	}
 }

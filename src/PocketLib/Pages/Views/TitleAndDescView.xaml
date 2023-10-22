@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:ctrl="clr-namespace:PocketLib.Controls"
+             x:Class="PocketLib.Pages.Views.TitleAndDescView"
+             x:Name="root">
+
+    <ContentView.Resources>
+        <ctrl:Converter x:Key="MyStringNullOrEmptyBoolConverter"/>
+    </ContentView.Resources>
+    <StackLayout BindingContext="{x:Reference root}" Padding="15,0" Spacing="-5">
+        <Label
+            FontAttributes="Bold"
+            FontSize="Small"
+            Text="{Binding Title, Source={x:Reference root}}"></Label>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <Label
+                FontSize="Small"
+                Text="{Binding AttributeTitle1, Source={x:Reference root}}" IsVisible="{Binding AttributeTitle1, Converter={StaticResource MyStringNullOrEmptyBoolConverter}}"></Label>
+            <Label
+                Grid.Row="1"
+                FontSize="Small"
+                Text="{Binding AttributeTitle2, Source={x:Reference root}}" IsVisible="{Binding AttributeTitle2, Converter={StaticResource MyStringNullOrEmptyBoolConverter}}"></Label>
+            <Label
+                Grid.Row="2"
+                FontSize="Small"
+                Text="{Binding AttributeTitle3, Source={x:Reference root}}" IsVisible="{Binding AttributeTitle3, Converter={StaticResource MyStringNullOrEmptyBoolConverter}}"></Label>
+
+            <Label
+                FontSize="Small"
+                Grid.Column="1"
+                HorizontalTextAlignment="End"
+                Text="{Binding AttributeDesc1, Source={x:Reference root}}" IsVisible="{Binding AttributeDesc1, Converter={StaticResource MyStringNullOrEmptyBoolConverter}}"></Label>
+            <Label
+                Grid.Row="1"
+                Grid.Column="1"
+                HorizontalTextAlignment="End"
+                FontSize="Small"
+                Text="{Binding AttributeDesc2, Source={x:Reference root}}" IsVisible="{Binding AttributeDesc2, Converter={StaticResource MyStringNullOrEmptyBoolConverter}}"></Label>
+            <Label
+                Grid.Column="1"
+                Grid.Row="2"
+                HorizontalTextAlignment="End"
+                FontSize="Small"
+                Text="{Binding AttributeDesc3, Source={x:Reference root}}" IsVisible="{Binding AttributeDesc3, Converter={StaticResource MyStringNullOrEmptyBoolConverter}}"></Label>
+
+        </Grid>
+        <Label
+            Padding="0,5"
+            FontSize="10"
+            Text="{Binding Desc, Source={x:Reference root}}" IsVisible="{Binding Desc, Converter={StaticResource MyStringNullOrEmptyBoolConverter}}"></Label>
+    </StackLayout>
+    
+    
+</ContentView>

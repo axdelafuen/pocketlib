@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:PocketLib.Pages.Views"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             x:Class="PocketLib.Pages.Views.DetailsView"
+             x:Name="root">
+    <ScrollView>
+        <VerticalStackLayout>
+            <Grid Padding="5,15">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="80"></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <Image
+                    Source="{Binding Image, Source={x:Reference root}}"
+                    HeightRequest="100"
+                    HorizontalOptions="Center"
+                />
+                <Label
+                    Grid.Column="1"
+                    Text="{Binding Title, Source={x:Reference root}}"
+                    FontAttributes="Bold"
+                    FontSize="Body"
+                    ></Label>
+                <controls:StarsView 
+                        Grid.Column="1"
+                        VerticalOptions="End"
+                        ></controls:StarsView>
+            </Grid>
+            <BoxView HeightRequest="0.5" Color="LightGray"/>
+
+            <controls:ButtonViewNoHeaderImage
+                Label="Infos en ligne"
+                />
+
+            <BoxView HeightRequest="0.5" Color="LightGray"/>
+
+            <controls:TitleAndDescView
+                Title="Auteur"
+                AttributeTitle1="{Binding Author, Source={x:Reference root}}"
+                />
+
+            <BoxView HeightRequest="0.5" Color="LightGray"/>
+
+            <controls:TitleAndDescView
+                Title="Maison d'édition"
+                AttributeTitle1="{Binding Edition, Source={x:Reference root}}"
+                />
+
+            <BoxView HeightRequest="0.5" Color="LightGray"/>
+
+            <controls:TitleAndDescView
+                Title="Résumé"
+                Desc="{Binding Resume, Source={x:Reference root}}"
+                />
+
+            <BoxView HeightRequest="0.5" Color="LightGray"/>
+
+            <controls:TitleAndDescView
+                Title="Détails"
+                AttributeTitle1="Nombre de pages"
+                AttributeDesc1="{Binding NbPages, Source= {x:Reference root}}"
+                AttributeTitle2="Langue"
+                AttributeDesc2="{Binding Language, Source={x:Reference root}}"
+                AttributeTitle3="ISBN"
+                AttributeDesc3="{Binding ISBN13, Source={x:Reference root}}"
+                />
+            <BoxView HeightRequest="0.5" Color="LightGray"/>
+            <controls:TitleAndDescView
+                Title="Statut de lecture"
+                AttributeTitle1="Statut"
+                AttributeDesc1="{Binding Status, Source={x:Reference root}}"
+                />
+            <BoxView HeightRequest="0.5" Color="LightGray"/>
+            <controls:TitleAndDescView
+                Title="Bibliothèque"
+                AttributeTitle1="Ajouté le"
+                AttributeDesc1="Indisponible"
+                />
+                
+            <BoxView HeightRequest="0.5" Color="LightGray"/>
+
+            <BoxView Margin="0,80,0,0" HeightRequest="0.5" Color="LightGray"/>
+            <controls:ButtonViewNoChevron
+                Label="Déplacer le livre"
+                Image="monochrome_folder.svg"
+                />
+            <BoxView HeightRequest="0.5" Color="LightGray"/>
+            <controls:ButtonViewNoChevron
+                Label="Ajouter à la liste a lire plus tard"
+                Image="monochrome_plus_circle.svg"
+                />
+            <BoxView HeightRequest="0.5" Color="LightGray"/>
+            <controls:ButtonViewNoChevron
+                Label="Changer le statut de lecture"
+                ActionCommand="{Binding ChangeStatusCommand,Source={x:Reference root}}"
+                Image="monochrome_eyeglasses.svg"
+                />
+            <BoxView HeightRequest="0.5" Color="LightGray"/>
+            <controls:ButtonViewNoChevron
+                Label="Prêter le livre"
+                Image="monochrome_person.svg"
+                />
+            <BoxView HeightRequest="0.5" Color="LightGray"/>
+        </VerticalStackLayout>
+    </ScrollView>
+    
+</ContentView>

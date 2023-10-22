@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:the49="https://schemas.the49.com/dotnet/2023/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             x:Class="PocketLib.Pages.Views.HeaderView"
+             x:Name="root">
+    <Grid
+        VerticalOptions="Fill" 
+        HorizontalOptions="Fill"
+        BindingContext="{x:Reference root}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        
+        <Label
+            FontAttributes="Bold"
+            FontSize="20"
+            Text="{Binding Label, Source={x:Reference root}}"
+            VerticalOptions="Center"
+            HorizontalOptions="Start"
+        />
+
+        <HorizontalStackLayout
+            HorizontalOptions="End" 
+            FlowDirection="LeftToRight"
+            Grid.Column="1">
+
+            <ImageButton 
+                Margin="10,0"
+                Source="{Binding Image1, Source={x:Reference root}}"
+                MaximumWidthRequest="20"
+                HorizontalOptions="Center"
+                the49:ContextMenu.ShowMenuOnClick="True"
+            >
+                <ImageButton.Behaviors>
+                    <toolkit:IconTintColorBehavior TintColor="Red" />
+                </ImageButton.Behaviors>
+                <the49:ContextMenu.Menu>
+                    <DataTemplate>
+                        <the49:Menu Title="Ajouter un livre">
+                            <the49:Group Title="Ajouter un livre">
+                                <the49:Action Title="Scanner un code-barres" />
+                                <the49:Action Title="Scanner des codes-barres" />
+                            </the49:Group>
+                            <the49:Action Title="Rechercher en ligne" />
+                            <the49:Action Title="Saisir l'ISBN" Command="{Binding ActionCommand,Source={x:Reference root}}"/>
+                        </the49:Menu>
+                    </DataTemplate>
+                </the49:ContextMenu.Menu>
+            </ImageButton>
+            
+            <ImageButton 
+                Margin="10,0"
+                Source="{Binding Image2, Source={x:Reference root}}"
+                MaximumWidthRequest="20"
+                HorizontalOptions="Center"
+            >
+                <ImageButton.Behaviors>
+                    <toolkit:IconTintColorBehavior TintColor="Red" />
+                </ImageButton.Behaviors>
+            </ImageButton>
+            
+        </HorizontalStackLayout>
+    </Grid>
+</ContentView>

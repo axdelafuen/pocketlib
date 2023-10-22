@@ -1,4 +1,4 @@
-using PocketLib.Models;
+using PocketLib.ViewModels;
 namespace PocketLib.Pages;
 
 public partial class AuthorPage : ContentPage
@@ -6,6 +6,5 @@ public partial class AuthorPage : ContentPage
 	public AuthorPage()
 	{
 		InitializeComponent();
-		BindingContext = new AuthorPageViewModel();
 	}
 }
