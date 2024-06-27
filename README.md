@@ -1,38 +1,40 @@
 # PocketLib
 
-### To-Do
+PocketLib is a book management application developed with .NET MAUI, following the MVVM (Model-View-ViewModel) design pattern.
 
-- [ ] Gérer les enum pour avoir des strings propre et modifiable (pas la merde qu'il ya dans le constructeur de BookVM actuellement)
+## Features
 
-- [ ] mon mvvm tool kit ?
+- Add, edit, and delete books
+- Display a list of books
+- Search for books by title or author
 
-- [ ] Faire fonctionner sonar
+## Technologies Used
 
-- [ ] Refaire la page de pret `LoanPage.xaml`, en reprennant le code forké de l'énoncé
+- [.NET MAUI](https://learn.microsoft.com/en-us/dotnet/maui/what-is-maui)
+- MVVM Pattern
 
-- [ ] Ajouter la vue de scan
+## Getting Started
 
-- [x] Faire en sorte que le menu contextuel soit accessible depuis toutes les pages
+To get started with PocketLib, follow these steps:
 
+1. Clone the repository:
+    ```bash
+    git clone https://github.com/axdelafuen/pocketlib.git
+    ```
+2. Navigate to the project directory:
+    ```bash
+    cd PocketLib
+    ```
+3. Restore the dependencies:
+    ```bash
+    dotnet restore
+    ```
+4. Build and run the application:
+    ```bash
+    dotnet build
+    dotnet run
+    ```
 
-- [x] Faire les views de DetailsPage en BindableProperty + le bindings de la DetailsPage
+## Contributing
 
-- [x] Faire le SelectionChanged de la CollectionView
-
-- [x] Completer le navigatorVM
-
-- [x] ContentView dans les pages
-
-- [x] Changer mon "header view" en -> ShellNavBar (cf fork de l'énoncé)
-
-- [x] `NavigatorVM.cs` -> singleton
-
-- [x] Changer le mode de navigation de `Shell.Current.GoToAsync()` en -> `(App.Current as App).MainPage.PushAsync(new Page())` = (pour fluidifier la navigation)
-
-- [x] Supprimer le `private void TapGestureRecognizer_Tapped(object sender, TappedEventArgs e)` dans le code-behind des views, les commands se font juste dans les VM.
-
-- [x] Supprimer toute les VM de route -> remplacer par un `NavigatorVM.cs` et ajouter des parameters dans les `ButtonView` pour choisir les pages usr la quelle on veut aller
-
-- [x] Passer de Book en BookVM -> utiliser un mapper (linq avec select)
-
-- [x] Ajouter la bibliothèque de class et le stub
+Contributions are welcome! Please open an issue or submit a pull request.
