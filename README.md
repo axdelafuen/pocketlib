@@ -34,7 +34,3 @@ To get started with PocketLib, follow these steps:
     dotnet build
     dotnet run
     ```
-
-## Contributing
-
-Contributions are welcome! Please open an issue or submit a pull request.
